@@ -1,0 +1,31 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSManagedZone
+metadata:
+  name: php-01hhmj81fhp-alpha-aspc-dns-zone # kpt-set: ${project-dept}${project-env}-${project-unique-id}-alpha-aspc-dns-zone
+  namespace: "config-control"
+  annotations:
+    cnrm.cloud.google.com/project-id: php-01hhmj81fhp # Specify the GCP project
+    cnrm.cloud.google.com/blueprint: 'kpt-fn'
+spec:
+  description: "alpha aspc"
+  dnsName: "alpha.aspc.gc.ca." # The DNS name
+  visibility: public # The visibility of the DNS managed zone
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: php-01hhmj81fhp-alpha-aspc-dns-recordset # kpt-set: ${project-dept}${project-env}-${project-unique-id}-alpha-aspc-dns-recordset
+  namespace: "config-control"
+  annotations:
+    cnrm.cloud.google.com/blueprint: 'kpt-fn'
+spec:
+  name: "alpha.aspc.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    name: alpha-aspc-dns-zone
+  rrdatas:
+  - "ns-cloud-a1.googledomains.com."
+  - "ns-cloud-a2.googledomains.com."
+  - "ns-cloud-a3.googledomains.com."
+  - "ns-cloud-a4.googledomains.com."
