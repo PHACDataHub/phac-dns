@@ -1,14 +1,15 @@
+# root-sync.yaml
 apiVersion: configsync.gke.io/v1beta1
 kind: RootSync
 metadata:
-  name: root-sync
+  name: phac-dns-root-sync
   namespace: config-management-system
-  uid: 893b1b03-3154-4bd5-b1d4-b28e4e0fe116
 spec:
-  git:
-    auth: none
-    branch: main
-    dir: dns-records
-    repo: https://github.com/PHACDataHub/phac-dns.git
-  sourceFormat: unstructured
   sourceType: git
+  sourceFormat: unstructured
+  git:
+    repo: https://github.dev/PHACDataHub/phac-dns
+    dir: dns
+    branch: main
+    gcpServiceAccountEmail: 545971386665-compute@developer.gserviceaccount.com 
+    # fix
