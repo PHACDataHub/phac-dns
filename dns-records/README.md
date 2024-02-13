@@ -1,1 +1,1 @@
-DNS YAML deifnitions go in here
+DNS YAML definitions go in here
