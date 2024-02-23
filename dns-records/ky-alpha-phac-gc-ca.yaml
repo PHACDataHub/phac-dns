@@ -2,7 +2,7 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: ky-alpha-phac-gc-ca
-  namespace: phac-dns
+  namespace: config-control
   annotations:
     projectName: "test ky"
     sourceCodeRepository: "https://github.com/tcaky/getting-rusty"
