@@ -1,0 +1,20 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: lk-alpha-phac-gc-ca
+  namespace: config-control
+  # annotations:
+  #   projectName: tbd
+  #   sourceCodeRepository: tbd
+  #   description: "Temporary domain used to help investigate authorization options for cloud run (with IAP)"
+spec:
+  name: "lk.alpha.phac.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-gc-ca
+  rrdatas:
+    - ns-cloud-e1.googledomains.com.
+    - ns-cloud-e2.googledomains.com.
+    - ns-cloud-e3.googledomains.com.
+    - ns-cloud-e4.googledomains.com.
