@@ -5,19 +5,25 @@ We are modernizing our data management at the Public Health Agency of Canada (PH
 The current domains we have control over are below:
 
 ### Alpha: ​​
-* alpha.phac.gc.ca​​
-* alpha.aspc.gc.ca​​
-* alpha.phac-aspc.gc.ca
+| Domain | Zone Ref |
+| --- | --- |
+| alpha.phac.gc.ca​​ | alpha-phac-gc-ca |
+| alpha.aspc.gc.ca​​ | alpha-aspc-gc-ca |
+| alpha.phac-aspc.gc.ca | alpha=phac-aspc-gc-ca |
 
 ### Beta:
-* beta.phac.gc.ca​​
-* beta.aspc.gc.ca​​
-* beta.phac-aspc.gc.ca
+| Domain | Zone Ref |
+| --- | --- |
+| beta.phac.gc.ca​​ | beta-phac-gc-ca |
+| beta.aspc.gc.ca​​ | beta-aspc-gc-ca |
+| beta.phac-aspc.gc.ca | beta-phac-aspc-gc-ca |
 
 ### Production
-* data.phac.gc.ca​​
-* donnes.aspc.gc.ca​​
-* data-donnes.phac-aspc.gc.ca​
-* api.phac.gc.ca​​​
-* ipa.aspc.gc.ca​​​
-* api-ipa.phac-aspc.gc.ca
+| Domain | Zone Ref |
+| --- | --- |
+| data.phac.gc.ca​​ | data-phac-gc-ca |
+| donnes.aspc.gc.ca​​ | donnes-aspc-gc-ca |
+| data-donnes.phac-aspc.gc.ca​ | data-donnes-phac-aspc-gc-ca |
+| api.phac.gc.ca​​​ | api-phac-gc-ca |
+| ipa.aspc.gc.ca​​​ | ipa-aspc-gc-ca |
+| api-ipa.phac-aspc.gc.ca | api-ipa-phac-aspc-gc-ca |
