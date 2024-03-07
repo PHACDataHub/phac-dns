@@ -9,7 +9,7 @@ The current domains we have control over are below:
 | --- | --- |
 | alpha.phac.gc.ca​​ | alpha-phac-gc-ca |
 | alpha.aspc.gc.ca​​ | alpha-aspc-gc-ca |
-| alpha.phac-aspc.gc.ca | alpha=phac-aspc-gc-ca |
+| alpha.phac-aspc.gc.ca | alpha-phac-aspc-gc-ca |
 
 ### Beta:
 | Domain | Zone Ref |
