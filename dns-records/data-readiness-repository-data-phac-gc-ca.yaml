@@ -1,0 +1,19 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: data-readiness-repository-data-phac-gc-ca
+  namespace: config-control
+  annotations:
+    projectName: "Data Readiness Repository"
+    sourceCodeRepository: "https://github.com/PHACDataHub/data-readiness-repository/"
+spec:
+  name: "data-readiness-repository.data.phac.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: data-phac-gc-ca
+  rrdatas:
+    - ns-cloud-e1.googledomains.com.
+    - ns-cloud-e2.googledomains.com.
+    - ns-cloud-e3.googledomains.com.
+    - ns-cloud-e4.googledomains.com.
