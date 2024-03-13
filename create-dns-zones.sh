@@ -10,3 +10,6 @@ gcloud dns --project=php-01hhmj81fhp managed-zones create data-donnes-phac-aspc-
 gcloud dns --project=php-01hhmj81fhp managed-zones create api-phac-gc-ca --description="" --dns-name="api.phac.gc.ca." --visibility="public" --dnssec-state="on" --log-dns-queries
 gcloud dns --project=php-01hhmj81fhp managed-zones create ipa-aspc-gc-ca --description="" --dns-name="ipa.aspc.gc.ca." --visibility="public" --dnssec-state="on" --log-dns-queries
 gcloud dns --project=php-01hhmj81fhp managed-zones create api-ipa-phac-aspc-gc-ca --description="" --dns-name="api-ipa.phac-aspc.gc.ca." --visibility="public" --dnssec-state="on" --log-dns-queries
+gcloud dns --project=php-01hhmj81fhp managed-zones create open-phac-gc-ca --description="" --dns-name="open.phac.gc.ca." --visibility="public" --dnssec-state="on" --log-dns-queries
+gcloud dns --project=php-01hhmj81fhp managed-zones create ouvert-aspc-gc-ca --description="" --dns-name="ouvert.aspc.gc.ca." --visibility="public" --dnssec-state="on" --log-dns-queries
+gcloud dns --project=php-01hhmj81fhp managed-zones create open-ouvert-phac-aspc-gc-ca --description="" --dns-name="open-ouvert.phac-aspc.gc.ca." --visibility="public" --dnssec-state="on" --log-dns-queries
