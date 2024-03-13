@@ -27,3 +27,6 @@ The current domains we have control over are below:
 | api.phac.gc.ca​​​ | api-phac-gc-ca |
 | ipa.aspc.gc.ca​​​ | ipa-aspc-gc-ca |
 | api-ipa.phac-aspc.gc.ca | api-ipa-phac-aspc-gc-ca |
+| open.phac.gc.ca | open-phac-gc-ca |
+| ouvert.aspc.gc.ca | ouvert-aspc-gc-ca |
+| open-ouvert.phac-aspc.gc.ca | open-ouvert-phac-aspc-gc-ca |
