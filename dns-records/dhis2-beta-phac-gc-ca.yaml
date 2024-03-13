@@ -11,7 +11,7 @@ spec:
   type: "NS"
   ttl: 300
   managedZoneRef:
-    external: dhis2-beta-phac-aspc-gc-ca
+    external: beta-phac-aspc-gc-ca
   rrdatas:
     - ns-cloud-e1.googledomains.com.
     - ns-cloud-e2.googledomains.com.
