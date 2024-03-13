@@ -1,0 +1,19 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: dhis2-beta-phac-aspc-gc-ca
+  namespace: config-control
+  annotations:
+    projectName: "dhis2"
+    sourceCodeRepository: "https://github.com/PHACDataHub/dhis-2/"
+spec:
+  name: "dhis2.beta.phac-aspc.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: beta-phac-aspc-gc-ca
+  rrdatas:
+    - ns-cloud-e1.googledomains.com.
+    - ns-cloud-e2.googledomains.com.
+    - ns-cloud-e3.googledomains.com.
+    - ns-cloud-e4.googledomains.com.
