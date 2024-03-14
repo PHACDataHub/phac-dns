@@ -1,0 +1,19 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: geocoder-alpha-phac-gc-ca
+  namespace: config-control
+  annotations:
+    projectName: "pelias geocoder"
+    sourceCodeRepository: "https://github.com/PHACDataHub/pelias-canada/"
+spec:
+  name: "geocoder.alpha.phac.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-gc-ca
+  rrdatas:
+    - ns-cloud-b1.googledomains.com.
+    - ns-cloud-b2.googledomains.com.
+    - ns-cloud-b3.googledomains.com.
+    - ns-cloud-b4.googledomains.com.
