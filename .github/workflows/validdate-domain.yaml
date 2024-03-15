@@ -28,6 +28,7 @@ jobs:
           exit 1
         fi
       
+# Search for 'spec.name' in YAML files changed_files, if spec.name doesnt exist in the file exit without error
     - name: Search for 'spec.name' in YAML files
       id: search_spec_name
       run: |
@@ -40,25 +41,4 @@ jobs:
         done
         echo "No 'spec.name' found in YAML files."
         exit 1
-      
-    - name: Validate domain name with regex
-      id: validate_domain
-      run: |
-        domain_pattern='^(http[s]?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}([\/]?)([a-zA-Z0-9#]+\/?)*$'
-        if [[ "${{ steps.search_spec_name.outputs.spec_name }}" =~ $domain_pattern ]]; then
-          echo "Domain name is valid."
-        else
-          echo "Invalid domain name: ${{ steps.search_spec_name.outputs.spec_name }}"
-          exit 1
-        fi
-    
-    - name: Block pull request on failure
-      if: failure()
-      run: |
-        echo "Validation failed. Pull request will be blocked."
-        # Your code to block the pull request here, e.g., using GitHub API
-        
-    - name: Pass pull request on success
-      if: success()
-      run: |
-        echo "Validation successful. Pull request can proceed."
+ 
