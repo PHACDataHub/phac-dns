@@ -22,7 +22,7 @@ jobs:
         changed_files=$(git diff --name-only HEAD^..HEAD)
         yaml_files=$(echo "$changed_files" | grep '\.yaml$')
         if [ -n "$yaml_files" ]; then
-          printf "yaml_files=%s" "$yaml_files" >> $GITHUB_OUTPUT  
+          echo "::set-output name={name}::{value}"
         else
           echo "No YAML files changed."
           exit 0
