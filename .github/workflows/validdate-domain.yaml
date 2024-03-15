@@ -15,7 +15,7 @@ jobs:
     - name: Check for YAML files with changes
       id: check_yaml
       run: |
-        changed_files=$(git diff --name-only ${{ github.base_ref }} ${{ github.head_ref }})
+        changed_files=$(git diff --name-only origin/main ${{ github.head_ref }})
         yaml_files=$(echo "$changed_files" | grep '\.yaml$')
         if [ -n "$yaml_files" ]; then
           echo "::set-output name=yaml_files::$yaml_files"
