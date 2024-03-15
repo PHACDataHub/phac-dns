@@ -15,6 +15,15 @@ jobs:
       with:
           fetch-depth: 0
 
+# list files changed in the pull request
+    - name: List changed files
+      id: list_changed_files
+      run: |
+        changed_files=$(git diff --name-only HEAD^..HEAD)
+        echo "Changed files:"
+        echo "$changed_files"
+      
+
     - name: Check for YAML files with changes
       id: check_yaml
       run: |
