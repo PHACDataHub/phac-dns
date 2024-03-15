@@ -22,23 +22,9 @@ jobs:
         changed_files=$(git diff --name-only HEAD^..HEAD)
         yaml_files=$(echo "$changed_files" | grep '\.yaml$')
         if [ -n "$yaml_files" ]; then
-          echo "::set-output name=yaml_files::$yaml_files"
+          echo "yaml_files=$yaml_files" >> $GITHUB_OUTPUT       
         else
           echo "No YAML files changed."
           exit 1
         fi
       
-# Search for 'spec.name' in YAML files changed_files, if spec.name doesnt exist in the file exit without error
-    - name: Search for 'spec.name' in YAML files
-      id: search_spec_name
-      run: |
-        for file in ${{ steps.check_yaml.outputs.yaml_files }}; do
-          spec_name=$(jq -r '.spec.name' "$file")
-          if [ -n "$spec_name" ]; then
-            echo "::set-output name=spec_name::$spec_name"
-            exit 0
-          fi
-        done
-        echo "No 'spec.name' found in YAML files."
-        exit 1
- 
