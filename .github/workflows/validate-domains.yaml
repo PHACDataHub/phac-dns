@@ -1,0 +1,60 @@
+name: Validate YAML Files in Pull Request
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  validate_yaml:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Check for YAML files with changes
+      id: check_yaml
+      run: |
+        changed_files=$(git diff --name-only ${{ github.base_ref }} ${{ github.head_ref }})
+        yaml_files=$(echo "$changed_files" | grep '\.yaml$')
+        if [ -n "$yaml_files" ]; then
+          echo "::set-output name=yaml_files::$yaml_files"
+        else
+          echo "No YAML files changed."
+          exit 1
+        fi
+      
+    - name: Search for 'spec.name' in YAML files
+      id: search_spec_name
+      run: |
+        for file in ${{ steps.check_yaml.outputs.yaml_files }}; do
+          spec_name=$(jq -r '.spec.name' "$file")
+          if [ -n "$spec_name" ]; then
+            echo "::set-output name=spec_name::$spec_name"
+            exit 0
+          fi
+        done
+        echo "No 'spec.name' found in YAML files."
+        exit 1
+      
+    - name: Validate domain name with regex
+      id: validate_domain
+      run: |
+        domain_pattern='^(http[s]?:\/\/)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}([\/]?)([a-zA-Z0-9#]+\/?)*$'
+        if [[ "${{ steps.search_spec_name.outputs.spec_name }}" =~ $domain_pattern ]]; then
+          echo "Domain name is valid."
+        else
+          echo "Invalid domain name: ${{ steps.search_spec_name.outputs.spec_name }}"
+          exit 1
+        fi
+    
+    - name: Block pull request on failure
+      if: failure()
+      run: |
+        echo "Validation failed. Pull request will be blocked."
+        # Your code to block the pull request here, e.g., using GitHub API
+        
+    - name: Pass pull request on success
+      if: success()
+      run: |
+        echo "Validation successful. Pull request can proceed."
