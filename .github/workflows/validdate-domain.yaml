@@ -15,7 +15,7 @@ jobs:
       with:
           fetch-depth: 0
 
-# list files changed in the pull request, store the files names in a variable for use in the next step
+# list yaml files that have been changed in the pull request.
     - name: Check for YAML files with changes
       id: check_yaml
       run: |
@@ -27,4 +27,3 @@ jobs:
           echo "No YAML files changed."
           exit 1
         fi
-      
