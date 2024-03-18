@@ -23,7 +23,7 @@ jobs:
         yaml_files=$(echo "$changed_files" | grep '\.yaml$')
         for file in $yaml_files; do
           echo "Processing file: $file"
-          foundDomainName=$(yq e '.spec.name' "$file")
+          foundDomainName=$(yq '.spec.name // ""' "$file")
           if [ -n "$foundDomainName" ]; then
             echo "found"
           fi
