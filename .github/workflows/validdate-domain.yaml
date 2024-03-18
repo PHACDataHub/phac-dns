@@ -21,6 +21,7 @@ jobs:
       run: |
         changed_files=$(git diff --name-only HEAD^..HEAD)
         yaml_files=$(echo "$changed_files" | grep '\.yaml$')
+        found_issues=false
         for file in $yaml_files; do
           echo "Processing file: $file"
           foundDomainName=$(yq '.spec.name // ""' "$file")
@@ -49,7 +50,12 @@ jobs:
           if (( $(echo "$sentiment_score < 0" | bc -l) )); then
             echo "Domain name seems to have a negative sentiment score. Please reconsider."
             echo "Domain name: $foundDomainName"
-            exit 1
+            found_issues=true
           fi
 
         done
+        
+        if [ "$found_issues" = true ]; then
+          echo "Validation encountered issues. Please review."
+          exit 1
+        fi
