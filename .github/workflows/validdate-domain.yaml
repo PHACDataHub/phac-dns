@@ -32,7 +32,6 @@ jobs:
 
           # make api call to Google Cloud NLP
           response=$(curl -s -X POST \
-            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
             -H "Content-Type: application/json" \
             -d '{
               "document": {
