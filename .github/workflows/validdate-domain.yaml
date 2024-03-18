@@ -42,12 +42,14 @@ jobs:
             }' \
             "https://language.googleapis.com/v2/documents:analyzeSentiment?key=${{secrets.GOOGLE_CLOUD_NLP_API_KEY}}")
 
-          # validate $response was success, else exit with error code 1
-          if [ $(echo "$response" | jq '.documentSentiment.score') -lt 0 ]; then
+          # Validate $response and extract sentiment score
+          sentiment_score=$(echo "$response" | jq -r '.documentSentiment.score')
+          
+          # Check if sentiment score is negative
+          if (( $(echo "$sentiment_score < 0" | bc -l) )); then
             echo "Domain name seems to have a negative sentiment score. Please reconsider."
             echo "Domain name: $foundDomainName"
             exit 1
           fi
-
 
         done
