@@ -24,7 +24,24 @@ jobs:
         for file in $yaml_files; do
           echo "Processing file: $file"
           foundDomainName=$(yq '.spec.name // ""' "$file")
-          if [ -n "$foundDomainName" ]; then
-            echo "found"
+          if [ -z "$foundDomainName" ]; then
+            echo "not found"
+            continue
           fi
+          echo "Validating domain name: $foundDomainName"
+
+          # make api call to  https://language.googleapis.com/v2/documents:analyzeSentiment
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "document": {
+                "type": "PLAIN_TEXT",
+                "content": "'"$foundDomainName"'"
+              },
+              "features": {
+                "extract_domain_names": true
+              }
+            }' \
+            "https://language.googleapis.com/v2/documents:analyzeSentiment?key=${{secrets.GOOGLE_CLOUD_NLP_API_KEY }}" | jq -r '.documentSentiment.score'
+
         done
