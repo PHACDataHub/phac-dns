@@ -30,8 +30,9 @@ jobs:
           fi
           echo "Validating domain name: $foundDomainName"
 
-          # make api call to  https://language.googleapis.com/v2/documents:analyzeSentiment
-          curl -X POST \
+          # make api call to Google Cloud NLP
+          response=$(curl -s -X POST \
+            -H "Authorization: Bearer $(gcloud auth print-access-token)" \
             -H "Content-Type: application/json" \
             -d '{
               "document": {
@@ -40,6 +41,14 @@ jobs:
                 "languageCode": "en"
               }
             }' \
-            "https://language.googleapis.com/v2/documents:analyzeSentiment?key=${{secrets.GOOGLE_CLOUD_NLP_API_KEY}}" | jq -r '.documentSentiment.score'""
+            "https://language.googleapis.com/v2/documents:analyzeSentiment?key=${{secrets.GOOGLE_CLOUD_NLP_API_KEY}}")
+
+          # validate $response was success, else exit with error code 1
+          if [ $(echo "$response" | jq '.documentSentiment.score') -lt 0 ]; then
+            echo "Domain name seems to have a negative sentiment score. Please reconsider."
+            echo "Domain name: $foundDomainName"
+            exit 1
+          fi
+
 
         done
