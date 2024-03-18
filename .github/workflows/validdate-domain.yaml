@@ -36,12 +36,10 @@ jobs:
             -d '{
               "document": {
                 "type": "PLAIN_TEXT",
-                "content": "'"$foundDomainName"'"
-              },
-              "features": {
-                "extract_domain_names": true
+                "content": "'"$foundDomainName"'",
+                "languageCode": "en"
               }
             }' \
-            "https://language.googleapis.com/v2/documents:analyzeSentiment?key=${{secrets.GOOGLE_CLOUD_NLP_API_KEY }}" | jq -r '.documentSentiment.score'
+            "https://language.googleapis.com/v2/documents:analyzeSentiment?key=${{secrets.GOOGLE_CLOUD_NLP_API_KEY}}" | jq -r '.documentSentiment.score'""
 
         done
