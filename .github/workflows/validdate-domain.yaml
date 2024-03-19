@@ -25,4 +25,4 @@ jobs:
         # set github action variable for next step
         changed_JSON="[$(echo $changed_files | sed 's/ /, /g')]
         echo changed_JSON
-        echo "changed_files=$changed_JSON" >> $GITHUB_OUTPUT
+
