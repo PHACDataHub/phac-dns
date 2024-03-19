@@ -22,7 +22,12 @@ jobs:
         echo "Changed Files"
         echo "$changed_files"
 
-        # set github action variable for next step
-        changed_JSON="[$(echo $changed_files | sed 's/ /, /g')]"
-        echo $changed_JSON
+        if [ -n "$changed_files" ]; then
+          yaml_files=$(echo "$changed_files" | grep '\.yaml$')
+          echo "Found yaml files"
+          echo "$yaml_files"
 
+        else
+          echo "No YAML files were changed."
+          exit 0  # Safely exit the action
+        fi
