@@ -32,19 +32,23 @@ jobs:
           exit 0  # Safely exit the action
         fi
 
-        files_with_spec_name=""
+        files_with_spec_name=()
 
         for file in $yaml_files; do
           foundDomainName=$(yq '.spec.name // ""' "$file")
           if [ -n "$foundDomainName" ]; then
-            files_with_spec_name="$files_with_spec_name $file"
+            # Append the filename to the array
+            files_with_spec_name+=("$file")
           fi
         done
 
-        if [ -z "$files_with_spec_name" ]; then
+        if [ ${#files_with_spec_name[@]} -eq 0 ]; then
           echo "No files with .spec.name found. Exiting cleanly."
           exit 0
         fi
 
         echo "Files with .spec.name:"
-        echo "$files_with_spec_name"
+        # Print all elements of the array
+        for file_with_spec_name in "${files_with_spec_name[@]}"; do
+          echo "$file_with_spec_name"
+        done
