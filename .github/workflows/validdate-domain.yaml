@@ -56,8 +56,9 @@ jobs:
 
         for file in $file_with_spec_name; do
           echo "Processing file: $file"
-
+          foundDomainName=$(yq '.spec.name // ""' "$file")
           echo "Validating domain name: $foundDomainName"
+
 
           # make api call to Google Cloud NLP
           response=$(curl -s -X POST \
