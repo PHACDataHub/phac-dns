@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - '**/*.yaml'
 
 jobs:
   validate_yaml:
@@ -22,19 +24,9 @@ jobs:
         echo "Changed Files"
         echo "$changed_files"
 
-        if [ -n "$changed_files" ]; then
-          yaml_files=$(echo "$changed_files" | grep '\.yaml$')
-          echo -e "\nFound yaml files"
-          echo "$yaml_files"
-
-        else
-          echo -e "\nNo YAML files were changed."
-          exit 0  # Safely exit the action
-        fi
-
         files_with_spec_name=()
 
-        for file in $yaml_files; do
+        for file in $changed_files; do
           foundDomainName=$(yq '.spec.name // ""' "$file")
           if [ -n "$foundDomainName" ]; then
             # Append the filename to the array
