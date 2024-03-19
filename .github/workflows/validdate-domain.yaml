@@ -54,6 +54,7 @@ jobs:
         done
 
 
+        found_issues=false
         for file in ${files_with_spec_name[@]}; do
           echo -e "\nProcessing file: $file"
           foundDomainName=$(yq '.spec.name // ""' "$file")
@@ -79,7 +80,13 @@ jobs:
 
           # Check if sentiment score is negative
           if (( $(echo "$sentiment_score < 0" | bc -l) )); then
-            echo "::error::$foundDomainName Domain name seems to have a negative sentiment score. Please reconsider."
+            echo "::error:: $foundDomainName Domain name seems to have a negative sentiment score. Please reconsider."
+            found_issues=true
           fi
 
         done
+
+        if [ "$found_issues" = true ]; then
+          echo "::error:: Validation encountered issues. Please review."
+          exit 1
+        fi
