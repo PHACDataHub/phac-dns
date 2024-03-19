@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - '**/*.yaml'
 
 jobs:
   validate_yaml:
@@ -23,7 +25,7 @@ jobs:
         echo "$changed_files"
 
         if [ -n "$changed_files" ]; then
-          yaml_files=$(echo "$changed_files" | grep '\.yaml$')
+          yaml_files=$(echo "$changed_files" | grep -E '\.yaml$')
           echo -e "\nFound yaml files"
           echo "$yaml_files"
 
