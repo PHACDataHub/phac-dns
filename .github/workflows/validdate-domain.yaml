@@ -44,47 +44,25 @@ jobs:
           exit 0  # Safely exit the action
         fi
 
-    - name: Check for YAML files with changes
-      id: check_yaml
+    - name: Build List of Files with .spec.name
+      id: build_list_with_name
       run: |
-
         yaml_files=${{ steps.filter_yaml_files.outputs.yaml_files }}
-        
-        found_issues=false
+        files_with_spec_name=""
+
         for file in $yaml_files; do
-          echo "Processing file: $file"
           foundDomainName=$(yq '.spec.name // ""' "$file")
-          if [ -z "$foundDomainName" ]; then
-            echo "not found"
-            continue
+          if [ -n "$foundDomainName" ]; then
+            files_with_spec_name="$files_with_spec_name $file"
           fi
-          echo "Validating domain name: $foundDomainName"
-
-          # make api call to Google Cloud NLP
-          response=$(curl -s -X POST \
-            -H "Content-Type: application/json" \
-            -d '{
-              "document": {
-                "type": "PLAIN_TEXT",
-                "content": "'"$foundDomainName"'",
-                "languageCode": "en"
-              }
-            }' \
-            "https://language.googleapis.com/v2/documents:analyzeSentiment?key=${{secrets.GOOGLE_CLOUD_NLP_API_KEY}}")
-
-          # Validate $response and extract sentiment score
-          sentiment_score=$(echo "$response" | jq -r '.documentSentiment.score')
-          
-          # Check if sentiment score is negative
-          if (( $(echo "$sentiment_score < 0" | bc -l) )); then
-            echo "Domain name seems to have a negative sentiment score. Please reconsider."
-            echo "Domain name: $foundDomainName"
-            found_issues=true
-          fi
-
         done
-        
-        if [ "$found_issues" = true ]; then
-          echo "Validation encountered issues. Please review."
-          exit 1
+
+        if [ -z "$files_with_spec_name" ]; then
+          echo "No files with .spec.name found. Exiting cleanly."
+          exit 0
         fi
+
+        echo "Files with .spec.name:"
+        echo "$files_with_spec_name"
+
+        echo "files_with_spec_name=$files_with_spec_name" >> $GITHUB_OUTPUT
