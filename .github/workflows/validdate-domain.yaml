@@ -19,7 +19,7 @@ jobs:
       id: get_changed_files
       run: |
         changed_files=$(git diff --name-only HEAD^..HEAD)
-        echo "::set-output name=changed_files::$changed_files"
+        echo "$changed_files"
 
     - name: Filter YAML Files
       id: filter_yaml_files
