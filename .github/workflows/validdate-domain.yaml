@@ -52,3 +52,33 @@ jobs:
         for file_with_spec_name in "${files_with_spec_name[@]}"; do
           echo "$file_with_spec_name"
         done
+
+
+        for file in $file_with_spec_name; do
+          echo "Processing file: $file"
+
+          echo "Validating domain name: $foundDomainName"
+
+          # make api call to Google Cloud NLP
+          response=$(curl -s -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "document": {
+                "type": "PLAIN_TEXT",
+                "content": "'"$foundDomainName"'",
+                "languageCode": "en"
+              }
+            }' \
+            "https://language.googleapis.com/v2/documents:analyzeSentiment?key=${{secrets.GOOGLE_CLOUD_NLP_API_KEY}}")
+
+          # Validate $response and extract sentiment score
+          sentiment_score=$(echo "$response" | jq -r '.documentSentiment.score')
+          
+          # Check if sentiment score is negative
+          if (( $(echo "$sentiment_score < 0" | bc -l) )); then
+            echo "Domain name seems to have a negative sentiment score. Please reconsider."
+            echo "Domain name: $foundDomainName"
+            found_issues=true
+          fi
+
+        done
