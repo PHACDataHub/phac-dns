@@ -24,17 +24,5 @@ jobs:
 
         # set github action variable for next step
         changed_JSON="[$(echo $changed_files | sed 's/ /, /g')]
+        echo changed_JSON
         echo "changed_files=$changed_JSON" >> $GITHUB_OUTPUT
-
-
-    - name: Filter YAML Files
-      id: filter_yaml_files
-      run: |
-        changed_files_json=${{ steps.get_changed_files.outputs.changed_files }}
-
-        # Extract filenames from JSON array using sed
-        changed_files=$(echo "$changed_files_json" | sed 's/\[//; s/\]//; s/"//g; s/,//g')
-
-        # Now $changed_files contains the list of changed files
-        echo "Changed Files after JSON conversion:"
-        echo "$changed_files"
