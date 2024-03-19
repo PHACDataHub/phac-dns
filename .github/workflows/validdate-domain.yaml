@@ -15,8 +15,8 @@ jobs:
       with:
           fetch-depth: 0
 
-    - name: Get Changed Files
-      id: get_changed_files
+    - name: Validate Domains
+      id: validate_domains
       run: |
         changed_files=$(git diff --name-only HEAD^..HEAD)
         echo "Changed Files"
@@ -24,11 +24,11 @@ jobs:
 
         if [ -n "$changed_files" ]; then
           yaml_files=$(echo "$changed_files" | grep '\.yaml$')
-          echo "Found yaml files"
+          echo -e "\nFound yaml files"
           echo "$yaml_files"
 
         else
-          echo "No YAML files were changed."
+          echo -e "\nNo YAML files were changed."
           exit 0  # Safely exit the action
         fi
 
@@ -43,11 +43,11 @@ jobs:
         done
 
         if [ ${#files_with_spec_name[@]} -eq 0 ]; then
-          echo "No files with .spec.name found. Exiting cleanly."
+          echo -e "\nNo files with .spec.name found. Exiting cleanly."
           exit 0
         fi
 
-        echo "Files with .spec.name:"
+        echo -e "\nFiles with .spec.name:"
         # Print all elements of the array
         for file in "${files_with_spec_name[@]}"; do
           echo "$file"
@@ -55,7 +55,7 @@ jobs:
 
 
         for file in ${files_with_spec_name[@]}; do
-          echo "Processing file: $file"
+          echo -e "\nProcessing file: $file"
           foundDomainName=$(yq '.spec.name // ""' "$file")
           echo "Validating domain name: $foundDomainName"
 
