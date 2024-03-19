@@ -15,21 +15,51 @@ jobs:
       with:
           fetch-depth: 0
 
-# list yaml files that have been changed in the pull request.
-    - name: Check for YAML files with changes
-      id: check_yaml
+    - name: Validate Domains
+      id: validate_domains
       run: |
         changed_files=$(git diff --name-only HEAD^..HEAD)
-        yaml_files=$(echo "$changed_files" | grep '\.yaml$')
-        found_issues=false
+        echo "Changed Files"
+        echo "$changed_files"
+
+        if [ -n "$changed_files" ]; then
+          yaml_files=$(echo "$changed_files" | grep '\.yaml$')
+          echo -e "\nFound yaml files"
+          echo "$yaml_files"
+
+        else
+          echo -e "\nNo YAML files were changed."
+          exit 0  # Safely exit the action
+        fi
+
+        files_with_spec_name=()
+
         for file in $yaml_files; do
-          echo "Processing file: $file"
           foundDomainName=$(yq '.spec.name // ""' "$file")
-          if [ -z "$foundDomainName" ]; then
-            echo "not found"
-            continue
+          if [ -n "$foundDomainName" ]; then
+            # Append the filename to the array
+            files_with_spec_name+=("$file")
           fi
+        done
+
+        if [ ${#files_with_spec_name[@]} -eq 0 ]; then
+          echo -e "\nNo files with .spec.name found. Exiting cleanly."
+          exit 0
+        fi
+
+        echo -e "\nFiles with .spec.name:"
+        # Print all elements of the array
+        for file in "${files_with_spec_name[@]}"; do
+          echo "$file"
+        done
+
+
+        found_issues=false
+        for file in ${files_with_spec_name[@]}; do
+          echo -e "\nProcessing file: $file"
+          foundDomainName=$(yq '.spec.name // ""' "$file")
           echo "Validating domain name: $foundDomainName"
+
 
           # make api call to Google Cloud NLP
           response=$(curl -s -X POST \
@@ -46,16 +76,17 @@ jobs:
           # Validate $response and extract sentiment score
           sentiment_score=$(echo "$response" | jq -r '.documentSentiment.score')
           
+          echo "Sentiment Score: $sentiment_score"
+
           # Check if sentiment score is negative
           if (( $(echo "$sentiment_score < 0" | bc -l) )); then
-            echo "Domain name seems to have a negative sentiment score. Please reconsider."
-            echo "Domain name: $foundDomainName"
+            echo "::error:: $foundDomainName Domain name seems to have a negative sentiment score. Please reconsider."
             found_issues=true
           fi
 
         done
-        
+
         if [ "$found_issues" = true ]; then
-          echo "Validation encountered issues. Please review."
+          echo "::error:: Validation encountered issues. Please review."
           exit 1
         fi
