@@ -25,10 +25,16 @@ jobs:
       id: filter_yaml_files
       run: |
         changed_files="$INPUT_CHANGED_FILES"
-        yaml_files=$(echo "$changed_files" | grep '\.yaml$' || true)
-        echo "::set-output name=yaml_files::$yaml_files"
+        if [ -n "$changed_files" ]; then
+          yaml_files=$(echo "$changed_files" | grep '\.yaml$')
+          echo "$yaml_files"
+        else
+          echo "No YAML files were changed."
+          exit 0  # Safely exit the action
+        fi
       env:
         INPUT_CHANGED_FILES: ${{ steps.get_changed_files.outputs.changed_files }}
+
 
     - name: Validate YAML Files
       id: validate_yaml
