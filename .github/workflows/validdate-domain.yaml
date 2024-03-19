@@ -79,9 +79,7 @@ jobs:
 
           # Check if sentiment score is negative
           if (( $(echo "$sentiment_score < 0" | bc -l) )); then
-            echo "Domain name seems to have a negative sentiment score. Please reconsider."
-            echo "Domain name: $foundDomainName"
-            found_issues=true
+            echo "::error::$foundDomainName Domain name seems to have a negative sentiment score. Please reconsider."
           fi
 
         done
