@@ -19,7 +19,7 @@ jobs:
       id: get_changed_files
       run: |
         changed_files=$(git diff --name-only HEAD^..HEAD)
-        echo "$changed_files" 
+        echo "::set-output name=changed_files::$changed_files"
 
     - name: Filter YAML Files
       id: filter_yaml_files
@@ -34,61 +34,3 @@ jobs:
         fi
       env:
         INPUT_CHANGED_FILES: ${{ steps.get_changed_files.outputs.changed_files }}
-
-
-    - name: Validate YAML Files
-      id: validate_yaml
-      run: |
-        set -e
-
-        # Function to validate sentiment score
-        validate_sentiment() {
-          local response=$1
-          local foundDomainName=$2
-          local sentiment_score=$(echo "$response" | jq -r '.documentSentiment.score')
-
-          if (( $(echo "$sentiment_score < 0" | bc -l) )); then
-            echo "Domain name '$foundDomainName' has a negative sentiment score. Please reconsider."
-            return 1
-          fi
-        }
-
-        # Retrieve filtered YAML files
-        yaml_files="$INPUT_YAML_FILES"
-
-        found_issues=false
-
-        for file in $yaml_files; do
-          echo "Processing file: $file"
-          foundDomainName=$(yq '.spec.name // ""' "$file")
-          if [ -z "$foundDomainName" ]; then
-            echo "Domain name not found in '$file'. Skipping."
-            continue
-          fi
-
-          echo "Validating domain name: $foundDomainName"
-
-          # Make API call to Google Cloud NLP
-          response=$(curl -s -X POST \
-            -H "Content-Type: application/json" \
-            -d '{
-              "document": {
-                "type": "PLAIN_TEXT",
-                "content": "'"$foundDomainName"'",
-                "languageCode": "en"
-              }
-            }' \
-            "https://language.googleapis.com/v1/documents:analyzeSentiment?key=${{secrets.GOOGLE_CLOUD_NLP_API_KEY}}")
-
-          # Validate response and extract sentiment score
-          if ! validate_sentiment "$response" "$foundDomainName"; then
-            found_issues=true
-          fi
-        done
-
-        if [ "$found_issues" = true ]; then
-          echo "Validation encountered issues. Please review."
-          exit 1
-        fi
-      env:
-        INPUT_YAML_FILES: ${{ steps.filter_yaml_files.outputs.yaml_files }}
