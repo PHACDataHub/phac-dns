@@ -54,7 +54,7 @@ jobs:
         done
 
 
-        for file in $file_with_spec_name; do
+        for file in ${files_with_spec_name[@]}; do
           echo "Processing file: $file"
           foundDomainName=$(yq '.spec.name // ""' "$file")
           echo "Validating domain name: $foundDomainName"
