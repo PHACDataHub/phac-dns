@@ -7,7 +7,7 @@ metadata:
     projectName: "ATIP DLP"
     sourceCodeRepository: "https://github.com/PHACDataHub/atip-dlp/"
 spec:
-  name: "atip-dlp.alpha.phac.canada.ca."
+  name: "atip-dlp.alpha.phac.gc.ca."
   type: "NS"
   ttl: 300
   managedZoneRef:
