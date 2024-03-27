@@ -1,4 +1,4 @@
-name: Validate YAML Files in Pull Request
+name: Validate Domain Name
 
 on:
   pull_request:
@@ -45,6 +45,7 @@ jobs:
         else
           echo -e "\nNo YAML files were changed."
           exit 0  
+        fi
 
         #find yaml files that have .spec.name defined
         for file in "${yaml_files[@]}"; do
