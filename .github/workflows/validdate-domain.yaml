@@ -1,4 +1,4 @@
-name: Validate YAML Files in Pull Request
+name: Validate Domain Name
 
 on:
   pull_request:
@@ -6,9 +6,10 @@ on:
       - main
     paths:
       - '**/*.yaml'
+      - '**/*.yml'
 
 jobs:
-  validate_yaml:
+  validate_domains:
     runs-on: ubuntu-latest
     
     steps:
@@ -20,26 +21,36 @@ jobs:
     - name: Validate Domains
       id: validate_domains
       run: |
+
+        files_with_spec_name=()
+        yaml_files=()
+        negative_score_threshold=-0.10
+        found_issues=false
+
+        #find yml/yaml files that have been changed    
         changed_files=$(git diff --name-only HEAD^..HEAD)
         echo "Changed Files"
         echo "$changed_files"
 
         if [ -n "$changed_files" ]; then
-          yaml_files=$(echo "$changed_files" | grep -E '\.yaml$')
+          while IFS= read -r file; do
+            yaml_files+=("$file")
+          done < <(echo "$changed_files" | grep -E '\.y(a)?ml$')
+
           echo -e "\nFound yaml files"
-          echo "$yaml_files"
+          for file in "${yaml_files[@]}"; do
+            echo "$file"
+          done
 
         else
           echo -e "\nNo YAML files were changed."
-          exit 0  # Safely exit the action
+          exit 0  
         fi
 
-        files_with_spec_name=()
-
-        for file in $yaml_files; do
+        #find yaml files that have .spec.name defined
+        for file in "${yaml_files[@]}"; do
           foundDomainName=$(yq '.spec.name // ""' "$file")
           if [ -n "$foundDomainName" ]; then
-            # Append the filename to the array
             files_with_spec_name+=("$file")
           fi
         done
@@ -55,15 +66,12 @@ jobs:
           echo "$file"
         done
 
-
-        found_issues=false
-        for file in ${files_with_spec_name[@]}; do
+        #make api calls to validate sentiment  
+        for file in "${files_with_spec_name[@]}"; do
           echo -e "\nProcessing file: $file"
           foundDomainName=$(yq '.spec.name // ""' "$file")
           echo "Validating domain name: $foundDomainName"
 
-
-          # make api call to Google Cloud NLP
           response=$(curl -s -X POST \
             -H "Content-Type: application/json" \
             -d '{
@@ -80,14 +88,15 @@ jobs:
           
           echo "Sentiment Score: $sentiment_score"
 
-          # Check if sentiment score is negative
-          if (( $(echo "$sentiment_score < 0" | bc -l) )); then
+          # Check if sentiment score is less than the threshold
+          if [ "$(echo "$sentiment_score < $negative_score_threshold" | bc -l)" -eq 1 ]; then
             echo "::error:: $foundDomainName Domain name seems to have a negative sentiment score. Please reconsider."
             found_issues=true
           fi
 
         done
 
+        #Set action status to fail if bad sentiment found 
         if [ "$found_issues" = true ]; then
           echo "::error:: Validation encountered issues. Please review."
           exit 1
