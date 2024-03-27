@@ -34,7 +34,7 @@ jobs:
 
         if [ -n "$changed_files" ]; then
           while IFS= read -r file; do
-          yaml_files+=("$file")
+            yaml_files+=("$file")
           done < <(echo "$changed_files" | grep -E '\.y(a)?ml$')
 
           echo -e "\nFound yaml files"
