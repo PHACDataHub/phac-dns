@@ -1,0 +1,19 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: atip-dlp-alpha-phac-gc-ca
+  namespace: config-control
+  annotations:
+    projectName: "ATIP DLP"
+    sourceCodeRepository: "https://github.com/PHACDataHub/atip-dlp/"
+spec:
+  name: "atip-dlp.alpha.phac.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-gc-ca
+  rrdatas:
+    - ns-cloud-a1.googledomains.com.
+    - ns-cloud-a2.googledomains.com.
+    - ns-cloud-a3.googledomains.com.
+    - ns-cloud-a4.googledomains.com.
