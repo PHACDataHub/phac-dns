@@ -11,7 +11,7 @@ spec:
   type: "NS"
   ttl: 300
   managedZoneRef:
-    external: leandhis2-alpha-phac-gc-ca
+    external: alpha-phac-gc-ca
   rrdatas:
     - ns-cloud-e1.googledomains.com.
     - ns-cloud-e2.googledomains.com.
