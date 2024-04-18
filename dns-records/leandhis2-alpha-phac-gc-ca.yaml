@@ -1,0 +1,19 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: leandhis2-alpha-phac-gc-ca
+  namespace: config-control
+  annotations:
+    projectName: "dhis2 lean infra"
+    sourceCodeRepository: "https://github.com/simardeep1792/lean-infra"
+spec:
+  name: "leandhis2.alpha.phac.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-gc-ca
+  rrdatas:
+    - ns-cloud-e1.googledomains.com.
+    - ns-cloud-e2.googledomains.com.
+    - ns-cloud-e3.googledomains.com.
+    - ns-cloud-e4.googledomains.com.
