@@ -1,0 +1,83 @@
+{
+    "Alpha": [
+        {
+            "Domain": "alpha.phac.gc.ca",
+            "Zone Ref": "alpha-phac-gc-ca",
+            "Language": "EN"
+        },
+        {
+            "Domain": "alpha.aspc.gc.ca",
+            "Zone Ref": "alpha-aspc-gc-ca",
+            "Language": "FR"
+        },
+        {
+            "Domain": "alpha.phac-aspc.gc.ca",
+            "Zone Ref": "alpha-phac-aspc-gc-ca",
+            "Language": ["EN", "FR"]
+        }
+    ],
+    "Beta": [
+        {
+            "Domain": "beta.phac.gc.ca",
+            "Zone Ref": "beta-phac-gc-ca",
+            "Language": "EN"
+        },
+        {
+            "Domain": "beta.aspc.gc.ca",
+            "Zone Ref": "beta-aspc-gc-ca",
+            "Language": "FR"
+        },
+        {
+            "Domain": "beta.phac-aspc.gc.ca",
+            "Zone Ref": "beta-phac-aspc-gc-ca",
+            "Language": ["EN", "FR"]
+        }
+    ],
+    "Production": [
+        {
+            "Domain": "data.phac.gc.ca",
+            "Zone Ref": "data-phac-gc-ca",
+            "Language": "EN"
+        },
+        {
+            "Domain": "donnes.aspc.gc.ca",
+            "Zone Ref": "donnes-aspc-gc-ca",
+            "Language": "FR"
+        },
+        {
+            "Domain": "data-donnes.phac-aspc.gc.ca",
+            "Zone Ref": "data-donnes-phac-aspc-gc-ca",
+            "Language": ["EN", "FR"]
+        },
+        {
+            "Domain": "api.phac.gc.ca",
+            "Zone Ref": "api-phac-gc-ca",
+            "Language": "EN"
+        },
+        {
+            "Domain": "ipa.aspc.gc.ca",
+            "Zone Ref": "ipa-aspc-gc-ca",
+            "Language": "FR"
+        },
+        {
+            "Domain": "api-ipa.phac-aspc.gc.ca",
+            "Zone Ref": "api-ipa-phac-aspc-gc-ca",
+            "Language": ["EN", "FR"]
+        },
+        {
+            "Domain": "open.phac.gc.ca",
+            "Zone Ref": "open-phac-gc-ca",
+            "Language": "EN"
+        },
+        {
+            "Domain": "ouvert.aspc.gc.ca",
+            "Zone Ref": "ouvert-aspc-gc-ca",
+            "Language": "FR"
+        },
+        {
+            "Domain": "open-ouvert.phac-aspc.gc.ca",
+            "Zone Ref": "open-ouvert-phac-aspc-gc-ca",
+            "Language": ["EN", "FR"]
+        }
+    ]
+}
