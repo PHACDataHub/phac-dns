@@ -27,31 +27,42 @@ jobs:
         negative_score_threshold=-0.10
         found_issues=false
 
-        #find yml/yaml files that have been changed    
+        # Find yml/yaml files that have been changed    
         changed_files=$(git diff --name-only HEAD^..HEAD)
         echo "Changed Files"
         echo "$changed_files"
 
         if [ -n "$changed_files" ]; then
           while IFS= read -r file; do
-            yaml_files+=("$file")
-          done < <(echo "$changed_files" | grep -E '\.y(a)?ml$')
+            if [[ "$file" =~ \.y(a)?ml$ ]]; then
+              yaml_files+=("$file")
+            fi
+          done < <(echo "$changed_files")
 
-          echo -e "\nFound yaml files"
+          echo -e "\nFound yaml files:"
           for file in "${yaml_files[@]}"; do
             echo "$file"
           done
-
         else
           echo -e "\nNo YAML files were changed."
           exit 0  
         fi
 
-        #find yaml files that have .spec.name defined
+        # Check if there are any YAML files to process
+        if [ ${#yaml_files[@]} -eq 0 ]; then
+          echo -e "\nNo YAML files to process after filtering. Exiting cleanly."
+          exit 0
+        fi
+
+        # Find yaml files that have .spec.name defined
         for file in "${yaml_files[@]}"; do
-          foundDomainName=$(yq '.spec.name // ""' "$file")
-          if [ -n "$foundDomainName" ]; then
-            files_with_spec_name+=("$file")
+          if [ -f "$file" ]; then  # Ensure the file still exists in the repository
+            foundDomainName=$(yq '.spec.name // ""' "$file")
+            if [ -n "$foundDomainName" ]; then
+              files_with_spec_name+=("$file")
+            fi
+          else
+            echo "File $file has been deleted or is not accessible."
           fi
         done
 
@@ -61,12 +72,11 @@ jobs:
         fi
 
         echo -e "\nFiles with .spec.name:"
-        # Print all elements of the array
         for file in "${files_with_spec_name[@]}"; do
           echo "$file"
         done
 
-        #make api calls to validate sentiment  
+        # Make API calls to validate sentiment  
         for file in "${files_with_spec_name[@]}"; do
           echo -e "\nProcessing file: $file"
           foundDomainName=$(yq '.spec.name // ""' "$file")
@@ -96,7 +106,7 @@ jobs:
 
         done
 
-        #Set action status to fail if bad sentiment found 
+        # Set action status to fail if bad sentiment found 
         if [ "$found_issues" = true ]; then
           echo "::error:: Validation encountered issues. Please review."
           exit 1
