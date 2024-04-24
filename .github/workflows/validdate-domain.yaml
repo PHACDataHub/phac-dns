@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - '**/*.yaml'
-      - '**/*.yml'
+      - 'dns-records/**/*.yaml'
+      - 'dns-records/**/*.yml'
 
 jobs:
   validate_domains:
