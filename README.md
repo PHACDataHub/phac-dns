@@ -30,3 +30,56 @@ The current domains we have control over are below:
 | open.phac.gc.ca | open-phac-gc-ca |
 | ouvert.aspc.gc.ca | ouvert-aspc-gc-ca |
 | open-ouvert.phac-aspc.gc.ca | open-ouvert-phac-aspc-gc-ca |
+
+## Request a DNS
+
+To request a DNS, you'll need to [create a Managed Zone](https://cloud.google.com/dns/docs/zones#create_managed_zones) resource in your GCP project.
+
+The `DNS name` field for the zone should have one of the previously mentioned subdomains as a prefix, the general convention is `<zone-name>.<sub-domain-name>.`. For instance, if my `Zone name` is `example`, then the `DNS name` could be `example.alpha.phac-aspc.gc.ca.`
+
+> Note: The period (`.`) at the end is required to make it a FQDN (Fully Qualified Domain Name). If you're curious, _why?_ - read [this](https://jvns.ca/blog/2022/09/12/why-do-domain-names-end-with-a-dot-/).
+
+Once done, click `Registrar Setup` in the top right corner of the `Zone details` page for your newly created zone and note down list of NS (Name Servers).
+
+Now, submit a PR into the repo with the following template in the `dns-records` directory.
+
+```yaml
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: <zone-name>
+  namespace: alpha-dns
+  annotations:
+    projectName: "<project-name>"
+    # projectId is the unique identifier for the project associated. i.e. phx-a345f39bv23
+    projectId: "ph?-1234567890" 
+    codeSourceRepository: "<codeSourceRepository>"
+    # The following annotations are optional - please comment out or remove lines that are not applicable 
+    serviceEndpointUrls: "<comma-separated-list-of-service url endpoints>"
+    containerRegistries: "<comma-separated-list-of-container-registries>"
+    apmId: <apm-id>
+
+spec:
+  name: "<DNS-name>"
+  type: "NS"
+  ttl: <your-desired-value>
+  managedZoneRef:
+    external: <zone-reference-name>
+  rrdatas:
+    - "<name-server-1>"
+    .
+    .
+    - "<name-server-N>"
+```
+
+In the above template, fill out the values for placeholders(`<>`):
+
+- `<zone-name>`: Name of the resource, could be same as the Zone name that you've created.
+- `<DNS-name>`: The DNS name from the previously created resource in your project. Don't forget the `.` at the end.
+- `<project-name>`: Project name, spaces allowed.
+- `<codeSourceRepository>`: Full url for source code repository, e.g. "https://github.com/PHACDataHub/repo-name".
+- `<comma-separated-list-of-service url endpoints>`: *Optional.* i.e. Full url for API, UI, etc.
+- `<comma-separated-list-of-container-registries>`: *Optional.* e.g. Artifact registry, Docker Hub for each container.
+- `<apm-id>`: *Optional.* Application Project Managament ID.
+- `<your-desired-value>`: Value to set for ttl (Time to Live). A good default for this is 300 but feel free to modify it. Units are in seconds.
+- `<zone-reference-name>`: This should be one of the zone references for the sub-domains we have as listed in the tables above this section.
