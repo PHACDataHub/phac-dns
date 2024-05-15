@@ -1,35 +1,42 @@
 # phac-dns
+
 ## What & Why
+
 We are modernizing our data management at the Public Health Agency of Canada (PHAC) by implementing a DNS repository that allows for PHAC-controlled DNS delegation. This initiative includes a self-service system for naming data services and web properties, ensuring easy access and management. Furthermore, we have introduced a tiered naming system to reflect the maturity of our Data Science Teams (DST). Central to this modernization is our "As Data" approach, which utilizes KCC YAML to describe DNS entries, facilitating automated analysis and governance across our service ecosystem. This method enhances the efficiency and oversight of our digital infrastructure, aligning with contemporary data management practices.
+
 ## Domains
+
 The current domains we have control over are below:
 
 ### Alpha: ​​
-| Domain | Zone Ref |
-| --- | --- |
-| alpha.phac.gc.ca​​ | alpha-phac-gc-ca |
-| alpha.aspc.gc.ca​​ | alpha-aspc-gc-ca |
+
+| Domain                | Zone Ref              |
+| --------------------- | --------------------- |
+| alpha.phac.gc.ca​​    | alpha-phac-gc-ca      |
+| alpha.aspc.gc.ca​​    | alpha-aspc-gc-ca      |
 | alpha.phac-aspc.gc.ca | alpha-phac-aspc-gc-ca |
 
 ### Beta:
-| Domain | Zone Ref |
-| --- | --- |
-| beta.phac.gc.ca​​ | beta-phac-gc-ca |
-| beta.aspc.gc.ca​​ | beta-aspc-gc-ca |
+
+| Domain               | Zone Ref             |
+| -------------------- | -------------------- |
+| beta.phac.gc.ca​​    | beta-phac-gc-ca      |
+| beta.aspc.gc.ca​​    | beta-aspc-gc-ca      |
 | beta.phac-aspc.gc.ca | beta-phac-aspc-gc-ca |
 
 ### Production
-| Domain | Zone Ref |
-| --- | --- |
-| data.phac.gc.ca​​ | data-phac-gc-ca |
-| donnes.aspc.gc.ca​​ | donnes-aspc-gc-ca |
+
+| Domain                       | Zone Ref                    |
+| ---------------------------- | --------------------------- |
+| data.phac.gc.ca​​            | data-phac-gc-ca             |
+| donnes.aspc.gc.ca​​          | donnes-aspc-gc-ca           |
 | data-donnes.phac-aspc.gc.ca​ | data-donnes-phac-aspc-gc-ca |
-| api.phac.gc.ca​​​ | api-phac-gc-ca |
-| ipa.aspc.gc.ca​​​ | ipa-aspc-gc-ca |
-| api-ipa.phac-aspc.gc.ca | api-ipa-phac-aspc-gc-ca |
-| open.phac.gc.ca | open-phac-gc-ca |
-| ouvert.aspc.gc.ca | ouvert-aspc-gc-ca |
-| open-ouvert.phac-aspc.gc.ca | open-ouvert-phac-aspc-gc-ca |
+| api.phac.gc.ca​​​            | api-phac-gc-ca              |
+| ipa.aspc.gc.ca​​​            | ipa-aspc-gc-ca              |
+| api-ipa.phac-aspc.gc.ca      | api-ipa-phac-aspc-gc-ca     |
+| open.phac.gc.ca              | open-phac-gc-ca             |
+| ouvert.aspc.gc.ca            | ouvert-aspc-gc-ca           |
+| open-ouvert.phac-aspc.gc.ca  | open-ouvert-phac-aspc-gc-ca |
 
 ## Request a DNS
 
@@ -48,13 +55,13 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: <zone-name>
-  namespace: alpha-dns
+  namespace: config-control
   annotations:
     projectName: "<project-name>"
     # projectId is the unique identifier for the project associated. i.e. phx-a345f39bv23
-    projectId: "ph?-1234567890" 
+    projectId: "ph?-1234567890"
     codeSourceRepository: "<codeSourceRepository>"
-    # The following annotations are optional - please comment out or remove lines that are not applicable 
+    # The following annotations are optional - please comment out or remove lines that are not applicable
     serviceEndpointUrls: "<comma-separated-list-of-service url endpoints>"
     containerRegistries: "<comma-separated-list-of-container-registries>"
     apmId: <apm-id>
@@ -78,8 +85,8 @@ In the above template, fill out the values for placeholders(`<>`):
 - `<DNS-name>`: The DNS name from the previously created resource in your project. Don't forget the `.` at the end.
 - `<project-name>`: Project name, spaces allowed.
 - `<codeSourceRepository>`: Full url for source code repository, e.g. "https://github.com/PHACDataHub/repo-name".
-- `<comma-separated-list-of-service url endpoints>`: *Optional.* i.e. Full url for API, UI, etc.
-- `<comma-separated-list-of-container-registries>`: *Optional.* e.g. Artifact registry, Docker Hub for each container.
-- `<apm-id>`: *Optional.* Application Project Managament ID.
+- `<comma-separated-list-of-service url endpoints>`: _Optional._ i.e. Full url for API, UI, etc.
+- `<comma-separated-list-of-container-registries>`: _Optional._ e.g. Artifact registry, Docker Hub for each container.
+- `<apm-id>`: _Optional._ Application Project Managament ID.
 - `<your-desired-value>`: Value to set for ttl (Time to Live). A good default for this is 300 but feel free to modify it. Units are in seconds.
 - `<zone-reference-name>`: This should be one of the zone references for the sub-domains we have as listed in the tables above this section.
