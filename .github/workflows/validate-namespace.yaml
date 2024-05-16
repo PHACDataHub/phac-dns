@@ -1,9 +1,12 @@
 name: Validate config-control Namespace
 
 on:
-  paths:
-    - 'dns-records/**/*.yaml'
-    - 'dns-records/**/*.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'dns-records/**/*.yaml'
+      - 'dns-records/**/*.yml'
 
 jobs:
   validate-namespace:
