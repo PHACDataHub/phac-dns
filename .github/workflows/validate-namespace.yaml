@@ -18,6 +18,9 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Install yq
+      uses: mikefarah/yq@v4
+
     - name: Validate namespace
       id: validate-namespace
       run: |
@@ -48,5 +51,3 @@ jobs:
           fi
         done
       shell: bash
-    - name: Install yq
-      uses: mikefarah/yq@v4
