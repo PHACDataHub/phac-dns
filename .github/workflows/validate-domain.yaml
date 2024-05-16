@@ -2,6 +2,8 @@ name: Validate Domain Name
 
 on:
   pull_request:
+    branches:
+      - main
     paths:
       - 'dns-records/**/*.yaml'
       - 'dns-records/**/*.yml'
