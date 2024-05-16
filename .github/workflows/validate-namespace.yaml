@@ -21,14 +21,11 @@ jobs:
     - name: Validate namespace
       id: validate-namespace
       run: |
-        files_with_namespace=()
         yaml_files=()
         EXPECTED_NAMESPACE='config-control'
         
         # Find yml/yaml files that have been changed    
         yaml_files=($(git diff --name-only HEAD^..HEAD | grep -E '\.y(a)?ml$'))
-        echo "Changed Files"
-        echo "$changed_files"
 
         # Check if there are any YAML files to process
         if [ ${#yaml_files[@]} -eq 0 ]; then
