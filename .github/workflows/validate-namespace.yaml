@@ -26,25 +26,9 @@ jobs:
         EXPECTED_NAMESPACE='config-control'
         
         # Find yml/yaml files that have been changed    
-        changed_files=$(git diff --name-only HEAD^..HEAD)
+        yaml_files=($(git diff --name-only HEAD^..HEAD | grep -E '\.y(a)?ml$'))
         echo "Changed Files"
         echo "$changed_files"
-        
-        if [ -n "$changed_files" ]; then
-          while IFS= read -r file; do
-            if [[ "$file" =~ \.y(a)?ml$ ]]; then
-              yaml_files+=("$file")
-            fi
-          done < <(echo "$changed_files")
-
-          echo -e "\nFound yaml files:"
-          for file in "${yaml_files[@]}"; do
-            echo "$file"
-          done
-        else
-          echo -e "\nNo YAML files were changed."
-          exit 0  
-        fi
 
         # Check if there are any YAML files to process
         if [ ${#yaml_files[@]} -eq 0 ]; then
