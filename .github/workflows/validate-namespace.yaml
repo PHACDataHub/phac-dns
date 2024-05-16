@@ -24,6 +24,7 @@ jobs:
       run: |
         yaml_files=()
         EXPECTED_NAMESPACE='config-control'
+        error_occurred=0
         
         # Find yml/yaml files that have been changed    
         yaml_files=($(git diff --name-only HEAD^..HEAD | grep -E '\.y(a)?ml$'))
@@ -39,8 +40,8 @@ jobs:
           if [ -f "$file" ]; then  # Ensure the file still exists in the repository
             NAMESPACE=$(yq e '.metadata.namespace // ""' "$file")
             if [ "$NAMESPACE" != "$EXPECTED_NAMESPACE" ]; then
-              echo "::error file=$FILE::Namespace is '$NAMESPACE', expected '$EXPECTED_NAMESPACE'"
-              exit 1
+              echo "::error file=$file::Namespace is '$NAMESPACE', expected '$EXPECTED_NAMESPACE'"
+              error_occured=1
             else
               echo "Namespace validation passed"
             fi
@@ -48,4 +49,9 @@ jobs:
             echo "File $file has been deleted or is not accessible."
           fi
         done
+        
+         # Exit with error if any validation failed
+        if [ $error_occurred -eq 1 ]; then
+          exit 1
+        fi       
       shell: bash
