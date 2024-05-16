@@ -1,9 +1,10 @@
 name: Validate config-control Namespace
 
 on:
-  paths:
-    - 'dns-records/**/*.yaml'
-    - 'dns-records/**/*.yml'
+  pull_request:
+    paths:
+      - 'dns-records/**/*.yaml'
+      - 'dns-records/**/*.yml'
 
 jobs:
   validate-namespace:
@@ -15,33 +16,18 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Install yq
+      uses: mikefarah/yq@v4
+
     - name: Validate namespace
       id: validate-namespace
       run: |
-        files_with_namespace=()
         yaml_files=()
         EXPECTED_NAMESPACE='config-control'
+        error_occurred=0
         
         # Find yml/yaml files that have been changed    
-        changed_files=$(git diff --name-only HEAD^..HEAD)
-        echo "Changed Files"
-        echo "$changed_files"
-        
-        if [ -n "$changed_files" ]; then
-          while IFS= read -r file; do
-            if [[ "$file" =~ \.y(a)?ml$ ]]; then
-              yaml_files+=("$file")
-            fi
-          done < <(echo "$changed_files")
-
-          echo -e "\nFound yaml files:"
-          for file in "${yaml_files[@]}"; do
-            echo "$file"
-          done
-        else
-          echo -e "\nNo YAML files were changed."
-          exit 0  
-        fi
+        yaml_files=($(git diff --name-only HEAD^..HEAD | grep -E '\.y(a)?ml$'))
 
         # Check if there are any YAML files to process
         if [ ${#yaml_files[@]} -eq 0 ]; then
@@ -54,8 +40,8 @@ jobs:
           if [ -f "$file" ]; then  # Ensure the file still exists in the repository
             NAMESPACE=$(yq e '.metadata.namespace // ""' "$file")
             if [ "$NAMESPACE" != "$EXPECTED_NAMESPACE" ]; then
-              echo "::error file=$FILE::Namespace is '$NAMESPACE', expected '$EXPECTED_NAMESPACE'"
-              exit 1
+              echo "::error file=$file::Namespace is '$NAMESPACE', expected '$EXPECTED_NAMESPACE'"
+              error_occured=1
             else
               echo "Namespace validation passed"
             fi
@@ -63,6 +49,9 @@ jobs:
             echo "File $file has been deleted or is not accessible."
           fi
         done
+        
+         # Exit with error if any validation failed
+        if [ $error_occurred -eq 1 ]; then
+          exit 1
+        fi       
       shell: bash
-    - name: Install yq
-      uses: mikefarah/yq@v4
