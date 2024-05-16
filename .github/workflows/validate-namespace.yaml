@@ -27,7 +27,7 @@ jobs:
         error_occurred=0
         
         # Find yml/yaml files that have been changed    
-        yaml_files=($(git diff --name-only HEAD^..HEAD | grep -E '\.y(a)?ml$'))
+        yaml_files=($(git diff --name-only HEAD^..HEAD | grep -E '^dns-records/.*\.ya?ml$'))
 
         # Check if there are any YAML files to process
         if [ ${#yaml_files[@]} -eq 0 ]; then
