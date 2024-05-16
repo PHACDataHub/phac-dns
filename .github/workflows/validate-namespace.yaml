@@ -41,7 +41,7 @@ jobs:
             NAMESPACE=$(yq e '.metadata.namespace // ""' "$file")
             if [ "$NAMESPACE" != "$EXPECTED_NAMESPACE" ]; then
               echo "::error file=$file::Namespace is '$NAMESPACE', expected '$EXPECTED_NAMESPACE'"
-              error_occured=1
+              error_occurred=1
             else
               echo "Namespace validation passed"
             fi
