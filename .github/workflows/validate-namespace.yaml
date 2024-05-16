@@ -2,8 +2,6 @@ name: Validate config-control Namespace
 
 on:
   pull_request:
-    branches:
-      - main
     paths:
       - 'dns-records/**/*.yaml'
       - 'dns-records/**/*.yml'
