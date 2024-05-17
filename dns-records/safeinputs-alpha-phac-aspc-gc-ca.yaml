@@ -1,17 +1,18 @@
 apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
-  name: safeinputs-alpha-phac-gc-ca
+  name: safeinputs-alpha-phac-aspc-gc-ca
   namespace: config-control
   annotations:
-    projectName: "safe-inputs"
+    projectName: "Safe Inputs"
+    projectId: "pdcp-cloud-005-safeinputs"
     sourceCodeRepository: "https://github.com/PHACDataHub/safe-inputs"
 spec:
-  name: "safeinputs.alpha.phac.gc.ca."
+  name: "safeinputs.alpha.phac-aspc.gc.ca."
   type: "NS"
   ttl: 300
   managedZoneRef:
-    external: alpha-phac-gc-ca
+    external: alpha-phac-aspc-gc-ca
   rrdatas:
     - ns-cloud-c1.googledomains.com.
     - ns-cloud-c2.googledomains.com.
