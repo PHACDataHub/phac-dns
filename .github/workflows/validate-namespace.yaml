@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
@@ -27,7 +27,7 @@ jobs:
         error_occurred=0
         
         # Find yml/yaml files that have been changed    
-        yaml_files=($(git diff --name-only HEAD^..HEAD | grep -E '\.y(a)?ml$'))
+        yaml_files=($(git diff --name-only HEAD^..HEAD))
 
         # Check if there are any YAML files to process
         if [ ${#yaml_files[@]} -eq 0 ]; then
@@ -40,8 +40,8 @@ jobs:
           if [ -f "$file" ]; then  # Ensure the file still exists in the repository
             NAMESPACE=$(yq e '.metadata.namespace // ""' "$file")
             if [ "$NAMESPACE" != "$EXPECTED_NAMESPACE" ]; then
-              echo "::error file=$file::Namespace is '$NAMESPACE', expected '$EXPECTED_NAMESPACE'"
-              error_occured=1
+              echo "::error file=$file::Error in file '$file': Namespace is '$NAMESPACE', expected '$EXPECTED_NAMESPACE'"
+              error_occurred=1
             else
               echo "Namespace validation passed"
             fi
