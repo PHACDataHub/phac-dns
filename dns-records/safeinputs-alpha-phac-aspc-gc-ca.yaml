@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "Safe Inputs"
+    projectId: "pdcp-cloud-005-safeinputs"
     sourceCodeRepository: "https://github.com/PHACDataHub/safe-inputs"
 spec:
   name: "safeinputs.alpha.phac-aspc.gc.ca."
