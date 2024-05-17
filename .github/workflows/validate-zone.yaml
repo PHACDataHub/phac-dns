@@ -1,0 +1,82 @@
+name: Validate zone
+
+on:
+  pull_request:
+    paths:
+      - 'dns-records/**/*.yaml'
+      - 'dns-records/**/*.yml'
+
+jobs:
+  validate-namespace:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Validate zone
+      id: validate-zone
+      run: |
+        yaml_files=()
+        error_occurred=false
+        zone_info='infra-deployment-scripts/zone-info.json'
+        declare -A valid_zones
+
+        # Ensure file exists
+        if [ ! -f "$zone_info" ]; then
+          echo "::error::JSON file not found."
+          exit 1
+        fi
+
+        # Extract zone data from JSON file
+        valid_zones_data=$(jq -r '.[] | .[] | "\(.["Zone Ref"])=\(.Domain)"' "$zone_info" | tr -d '\r')
+
+        # Populate the associative array
+        while IFS="=" read -r zone_ref domain; do
+          valid_zones["$zone_ref"]="$domain"
+        done <<< "$valid_zones_data"
+
+        # Find changed YAML files
+        yaml_files=($(git diff --name-only HEAD^..HEAD))
+
+        # Check if there are any YAML files to process
+        if [ ${#yaml_files[@]} -eq 0 ]; then
+          echo "No YAML files to process after filtering. Exiting cleanly."
+          exit 0
+        fi
+
+        # Checks if zone is valid and if domain matches zone
+        validate_file() {
+          local file=$1
+          local zone domain
+
+          zone=$(yq e '.spec.managedZoneRef.external // ""' "$file")
+          if [ -z "${valid_zones[$zone]}" ]; then
+            echo "::error file=$file::Error in file '$file': Invalid zone."
+            error_occurred=true
+          else
+            domain=$(yq e '.spec.name // ""' "$file" | sed 's/^[^.]*\.//; s/\.$//')
+            if [ "${valid_zones[$zone]}" != "$domain" ]; then
+              echo "::error file=$file::Error in file '$file': Zone does not match domain."
+              error_occurred=true
+            else
+              echo "Zone validation passed for '$file'."
+            fi
+          fi
+        }
+
+        for file in "${yaml_files[@]}"; do
+          if [ -f "$file" ]; then
+            validate_file "$file"
+          else
+            echo "File $file has been deleted or is not accessible."
+          fi
+        done
+
+        # Exit with error if any validation failed
+        if [ "$error_occurred" = true ]; then
+          exit 1
+        fi
+      shell: bash
