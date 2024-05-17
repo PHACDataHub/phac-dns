@@ -11,14 +11,14 @@ spec:
   dnsName: beta.phac.gc.ca.
   dnssecConfig:
     defaultKeySpecs:
-    - algorithm: rsasha256
-      keyLength: 2048
-      keyType: keySigning
-      kind: dns#dnsKeySpec
-    - algorithm: rsasha256
-      keyLength: 1024
-      keyType: zoneSigning
-      kind: dns#dnsKeySpec
+      - algorithm: rsasha256
+        keyLength: 2048
+        keyType: keySigning
+        kind: dns#dnsKeySpec
+      - algorithm: rsasha256
+        keyLength: 1024
+        keyType: zoneSigning
+        kind: dns#dnsKeySpec
     kind: dns#managedZoneDnsSecConfig
     nonExistence: nsec3
     state: "on"
