@@ -7,7 +7,7 @@ on:
       - 'dns-records/**/*.yml'
 
 jobs:
-  validate-zone:
+  validate-namespace:
     runs-on: ubuntu-latest
 
     steps:
