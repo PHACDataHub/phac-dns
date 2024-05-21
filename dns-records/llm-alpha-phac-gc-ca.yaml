@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "data-science-llm"
+    projectId: "phx-datasciencellm"
     sourceCodeRepository: "https://github.com/PHACDataHub/llm-playground"
 spec:
   name: "llm.alpha.phac.gc.ca."

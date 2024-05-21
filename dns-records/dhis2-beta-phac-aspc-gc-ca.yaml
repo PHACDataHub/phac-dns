@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "dhis2"
+    projectId: "pht-01hrfr2t7yq"
     sourceCodeRepository: "https://github.com/PHACDataHub/dhis-2/"
 spec:
   name: "dhis2.beta.phac-aspc.gc.ca."
