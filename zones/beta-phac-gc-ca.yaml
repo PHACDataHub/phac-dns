@@ -5,6 +5,7 @@ metadata:
   annotations:
     cnrm.cloud.google.com/force-destroy: "false"
     cnrm.cloud.google.com/project-id: php-01hhmj81fhp
+    cnrm.cloud.google.com/deletion-policy: abandon
   name: beta-phac-gc-ca
 spec:
   dnsName: beta.phac.gc.ca.
