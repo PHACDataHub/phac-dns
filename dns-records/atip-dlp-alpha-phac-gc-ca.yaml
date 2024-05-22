@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "ATIP DLP"
+    projectId: "hcx-01hsvjxh7wf"
     sourceCodeRepository: "https://github.com/PHACDataHub/atip-dlp/"
 spec:
   name: "atip-dlp.alpha.phac.gc.ca."

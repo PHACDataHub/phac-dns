@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "Data Readiness Repository"
+    projectId: "pht-01hp2gskb15"
     sourceCodeRepository: "https://github.com/PHACDataHub/data-readiness-repository/"
 spec:
   name: "data-readiness-repository.data.phac.gc.ca."

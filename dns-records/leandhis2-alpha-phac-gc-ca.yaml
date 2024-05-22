@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "dhis2 lean infra"
+    projectId: "pht-01hrfr2t7yq"
     sourceCodeRepository: "https://github.com/simardeep1792/lean-infra"
 spec:
   name: "leandhis2.alpha.phac.gc.ca."

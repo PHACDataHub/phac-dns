@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "pelias geocoder"
+    projectId: "phx-01ha7rezhv"
     sourceCodeRepository: "https://github.com/PHACDataHub/pelias-canada/"
 spec:
   name: "geocoder.alpha.phac.gc.ca."

@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "django-shiny"
+    projectId: "pht-01hhmqtnrpf"
     sourceCodeRepository: "https://github.com/PHACDataHub/django-shiny"
 spec:
   name: "shiny.alpha.phac-aspc.gc.ca."

@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "hopic"
+    projectId: "pht-01hp04dtnkf"
     sourceCodeRepository: "https://github.com/PHACDataHub/cpho-phase2/"
 spec:
   name: "hopic-sdpac.data-donnes.phac-aspc.gc.ca."
