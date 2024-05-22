@@ -1,4 +1,4 @@
-# root-sync.yaml
+# Root sync for dns-records
 apiVersion: configsync.gke.io/v1beta1
 kind: RootSync
 metadata:
@@ -9,6 +9,21 @@ spec:
     auth: none
     branch: main
     dir: dns-records
+    repo: https://github.com/PHACDataHub/phac-dns.git
+  sourceFormat: unstructured
+  sourceType: git
+---
+# Root sync for zones
+apiVersion: configsync.gke.io/v1beta1
+kind: RootSync
+metadata:
+  name: root-sync
+  namespace: config-management-system
+spec:
+  git:
+    auth: none
+    branch: main
+    dir: zones
     repo: https://github.com/PHACDataHub/phac-dns.git
   sourceFormat: unstructured
   sourceType: git
