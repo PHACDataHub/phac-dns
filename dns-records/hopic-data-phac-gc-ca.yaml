@@ -1,0 +1,20 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: hopic-data-phac-gc-ca
+  namespace: config-control
+  annotations:
+    projectName: "hopic"
+    projectId: "pht-01hp04dtnkf"
+    sourceCodeRepository: "https://github.com/PHACDataHub/cpho-phase2/"
+spec:
+  name: "hopic-sdpac.data.phac.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: data-phac-gc-ca
+  rrdatas:
+    - ns-cloud-c1.googledomains.com.
+    - ns-cloud-c2.googledomains.com.
+    - ns-cloud-c3.googledomains.com.
+    - ns-cloud-c4.googledomains.com.
