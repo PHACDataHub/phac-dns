@@ -29,8 +29,8 @@ The current domains we have control over are below:
 | Domain                       | Zone Ref                    |
 | ---------------------------- | --------------------------- |
 | data.phac.gc.ca​​            | data-phac-gc-ca             |
-| donnes.aspc.gc.ca​​          | donnes-aspc-gc-ca           |
-| data-donnes.phac-aspc.gc.ca​ | data-donnes-phac-aspc-gc-ca |
+| donnees.aspc.gc.ca​​          | donnees-aspc-gc-ca           |
+| data-donnees.phac-aspc.gc.ca​ | data-donnees-phac-aspc-gc-ca |
 | api.phac.gc.ca​​​            | api-phac-gc-ca              |
 | ipa.aspc.gc.ca​​​            | ipa-aspc-gc-ca              |
 | api-ipa.phac-aspc.gc.ca      | api-ipa-phac-aspc-gc-ca     |
