@@ -29,8 +29,8 @@ The current domains we have control over are below:
 | Domain                       | Zone Ref                    |
 | ---------------------------- | --------------------------- |
 | data.phac.gc.ca​​            | data-phac-gc-ca             |
-| donnes.aspc.gc.ca​​          | donnes-aspc-gc-ca           |
-| data-donnes.phac-aspc.gc.ca​ | data-donnes-phac-aspc-gc-ca |
+| donnees.aspc.gc.ca​​          | donnees-aspc-gc-ca           |
+| data-donnees.phac-aspc.gc.ca​ | data-donnees-phac-aspc-gc-ca |
 | api.phac.gc.ca​​​            | api-phac-gc-ca              |
 | ipa.aspc.gc.ca​​​            | ipa-aspc-gc-ca              |
 | api-ipa.phac-aspc.gc.ca      | api-ipa-phac-aspc-gc-ca     |
@@ -60,7 +60,7 @@ metadata:
     projectName: "<project-name>"
     # projectId is the unique identifier for the project associated. i.e. phx-a345f39bv23
     projectId: "ph?-1234567890"
-    codeSourceRepository: "<codeSourceRepository>"
+    sourceCodeRepository: "<sourceCodeRepository>"
     # The following annotations are optional - please comment out or remove lines that are not applicable
     serviceEndpointUrls: "<comma-separated-list-of-service url endpoints>"
     containerRegistries: "<comma-separated-list-of-container-registries>"
