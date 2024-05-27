@@ -53,6 +53,12 @@ gcloud projects add-iam-policy-binding "${GOOGLE_CLOUD_PROJECT}" \
     --member "serviceAccount:sa-${GOOGLE_CLOUD_PROJECT}-phac-dns@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com" \
     --role "roles/dns.admin" \
     --project "${GOOGLE_CLOUD_PROJECT}"
+
+gcloud iam service-accounts add-iam-policy-binding \                                                                                                                                                                                                                  py base gcloud pht-scienceportal
+  "sa-${GOOGLE_CLOUD_PROJECT}-phac-dns@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com" \
+  --member="serviceAccount:${GOOGLE_CLOUD_PROJECT}.svc.id.goog[cnrm-system/cnrm-controller-manager-cnrm-system]" \
+  --role="roles/iam.workloadIdentityUser" \
+  --project ${GOOGLE_CLOUD_PROJECT}
     
 # Create a GCP network
 gcloud compute networks create "${GOOGLE_CLOUD_PROJECT}-vpc-01" \
