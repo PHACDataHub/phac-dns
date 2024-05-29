@@ -12,7 +12,7 @@ spec:
   type: "NS"
   ttl: 300
   managedZoneRef:
-    external: alpha-phac-gc-ca
+    external: alpha-phac-aspc-gc-ca
   rrdatas:
     - ns-cloud-a1.googledomains.com.
     - ns-cloud-a2.googledomains.com.
