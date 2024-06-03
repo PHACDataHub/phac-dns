@@ -4,9 +4,11 @@ metadata:
   name: catalogue-alpha-phac-aspc-gc-ca
   namespace: config-control
   annotations:
-    projectName: "phemu-platdev-datacatalogue"
-    projectId: "phemu-platdev-datacatalogue"
     sourceCodeRepository: "https://github.com/PHACDataHub/data-catalog/"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phemu-platdev-datacatalogue"
+    project-id: "phemu-platdev-datacatalogue"
 spec:
   name: "catalogue.alpha.phac-aspc.gc.ca."
   type: "NS"

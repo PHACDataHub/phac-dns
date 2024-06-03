@@ -4,9 +4,11 @@ metadata:
   name: leandhis2-alpha-phac-gc-ca
   namespace: config-control
   annotations:
-    projectName: "dhis2 lean infra"
-    projectId: "pht-01hrfr2t7yq"
     sourceCodeRepository: "https://github.com/simardeep1792/lean-infra"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "dhis2-lean-infra"
+    project-id: "pht-01hrfr2t7yq"
 spec:
   name: "leandhis2.alpha.phac.gc.ca."
   type: "NS"
