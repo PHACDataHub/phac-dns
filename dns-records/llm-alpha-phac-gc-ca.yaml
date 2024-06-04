@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     sourceCodeRepository: "https://github.com/PHACDataHub/llm-playground"
+    cnrm.cloud.google.com/deletion-policy: abandon
   labels:
     controlled-by: "phac-dns"
     project-name: "data-science-llm"
