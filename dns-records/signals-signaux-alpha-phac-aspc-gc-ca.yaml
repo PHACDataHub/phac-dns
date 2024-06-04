@@ -4,9 +4,11 @@ metadata:
   name: signals-signaux-alpha-phac-aspc-gc-ca
   namespace: config-control
   annotations:
-    projectName: "Signal Detection Platform"
-    projectId: "phx-01hnapr4ab4"
     sourceCodeRepository: "https://github.com/PHACDataHub/foresight/"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "signal-detection-platform"
+    project-id: "phx-01hnapr4ab4"
 spec:
   name: "signals-signaux.alpha.phac-aspc.gc.ca."
   type: "NS"
