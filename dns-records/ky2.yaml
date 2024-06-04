@@ -8,7 +8,6 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "test-ky2"
-    #project-id: ""
 spec:
   name: "ky2.beta.phac.gc.ca."
   type: "NS"

@@ -3,12 +3,9 @@ kind: DNSRecordSet
 metadata:
   name: infra-auth-alpha-phac-gc-ca
   namespace: config-control
-  annotations:
-    #sourceCodeRepository: ""
   labels:
     controlled-by: "phac-dns"
     project-name: "infrastructure-sso"
-    #project-id: ""
 spec:
   name: "infra-auth.alpha.phac.gc.ca."
   type: "NS"
