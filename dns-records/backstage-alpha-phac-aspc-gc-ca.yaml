@@ -7,6 +7,7 @@ metadata:
     projectName: "sci-portal"
     projectId: "pht-01hsv4d2m0n"
     sourceCodeRepository: "https://github.com/PHACDataHub/sci-portal"
+    cnrm.cloud.google.com/deletion-policy: abandon
 spec:
   name: "backstage.alpha.phac-aspc.gc.ca."
   type: "NS"

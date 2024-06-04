@@ -7,6 +7,7 @@ metadata:
     projectName: "pelias geocoder"
     projectId: "phx-01ha7rezhv"
     sourceCodeRepository: "https://github.com/PHACDataHub/pelias-canada/"
+    cnrm.cloud.google.com/deletion-policy: abandon
 spec:
   name: "geocoder.alpha.phac.gc.ca."
   type: "NS"

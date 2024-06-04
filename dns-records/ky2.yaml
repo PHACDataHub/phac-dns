@@ -6,6 +6,7 @@ metadata:
   annotations:
     projectName: "test ky2"
     sourceCodeRepository: "https://github.com/tcaky/getting-rusty"
+    cnrm.cloud.google.com/deletion-policy: abandon
 spec:
   name: "ky2.beta.phac.gc.ca."
   type: "NS"
