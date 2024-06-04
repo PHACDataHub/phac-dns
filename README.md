@@ -61,7 +61,7 @@ metadata:
     # The following annotations are optional - please comment out or remove lines that are not applicable
     serviceEndpointUrls: "<comma-separated-list-of-service url endpoints>"
     containerRegistries: "<comma-separated-list-of-container-registries>"
-  # Labels keys and values can contain only lowercase letters, numeric characters, underscores, and dashes.
+  # Label keys and values can contain only lowercase letters, numeric characters, underscores, and dashes.
   labels:
     controlled-by: "phac-dns"
     project-name: "<project-name>"
