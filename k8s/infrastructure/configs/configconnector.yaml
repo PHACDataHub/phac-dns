@@ -6,12 +6,12 @@ metadata:
   # ConfigConnector resource installed in your cluster
   name: configconnector.core.cnrm.cloud.google.com
 spec:
- mode: namespaced
+  mode: namespaced
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: cnrm-system
+  name: dns
   annotations:
     cnrm.cloud.google.com/project-id: php-01hhmj81fhp
 spec: {}
@@ -22,6 +22,7 @@ kind: ConfigConnectorContext
 metadata:
   # you can only have one ConfigConnectorContext per namespace
   name: configconnectorcontext.core.cnrm.cloud.google.com
-  namespace: cnrm-system
+  namespace: dns
 spec:
   googleServiceAccount: sa-php-01hhmj81fhp-phac-dns@php-01hhmj81fhp.iam.gserviceaccount.com
+  stateIntoSpec: Absent
