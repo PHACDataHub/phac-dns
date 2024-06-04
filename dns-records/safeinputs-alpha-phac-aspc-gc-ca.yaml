@@ -7,6 +7,7 @@ metadata:
     projectName: "Safe Inputs"
     projectId: "pdcp-cloud-005-safeinputs"
     sourceCodeRepository: "https://github.com/PHACDataHub/safe-inputs"
+    cnrm.cloud.google.com/deletion-policy: abandon
 spec:
   name: "safeinputs.alpha.phac-aspc.gc.ca."
   type: "NS"

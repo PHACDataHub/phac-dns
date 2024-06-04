@@ -7,6 +7,7 @@ metadata:
     projectName: "Signal Detection Platform"
     projectId: "phx-01hnapr4ab4"
     sourceCodeRepository: "https://github.com/PHACDataHub/foresight/"
+    cnrm.cloud.google.com/deletion-policy: abandon
 spec:
   name: "signals-signaux.alpha.phac-aspc.gc.ca."
   type: "NS"

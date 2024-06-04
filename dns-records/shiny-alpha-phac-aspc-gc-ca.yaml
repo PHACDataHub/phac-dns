@@ -7,6 +7,7 @@ metadata:
     projectName: "django-shiny"
     projectId: "pht-01hhmqtnrpf"
     sourceCodeRepository: "https://github.com/PHACDataHub/django-shiny"
+    cnrm.cloud.google.com/deletion-policy: abandon
 spec:
   name: "shiny.alpha.phac-aspc.gc.ca."
   type: "NS"

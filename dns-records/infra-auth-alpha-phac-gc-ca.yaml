@@ -5,6 +5,7 @@ metadata:
   namespace: config-control
   annotations:
     projectName: "Infrastructure SSO"
+    cnrm.cloud.google.com/deletion-policy: abandon
 spec:
   name: "infra-auth.alpha.phac.gc.ca."
   type: "NS"
