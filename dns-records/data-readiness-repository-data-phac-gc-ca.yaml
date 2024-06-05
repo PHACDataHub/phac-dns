@@ -4,10 +4,12 @@ metadata:
   name: data-readiness-repository-data-phac-gc-ca
   namespace: config-control
   annotations:
-    projectName: "Data Readiness Repository"
-    projectId: "pht-01hp2gskb15"
     sourceCodeRepository: "https://github.com/PHACDataHub/data-readiness-repository/"
     cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "data-readiness-repository"
+    project-id: "pht-01hp2gskb15"
 spec:
   name: "data-readiness-repository.data.phac.gc.ca."
   type: "NS"

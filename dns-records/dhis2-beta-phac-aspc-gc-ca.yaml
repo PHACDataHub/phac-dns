@@ -4,10 +4,12 @@ metadata:
   name: dhis2-beta-phac-aspc-gc-ca
   namespace: config-control
   annotations:
-    projectName: "dhis2"
-    projectId: "pht-01hrfr2t7yq"
     sourceCodeRepository: "https://github.com/PHACDataHub/dhis-2/"
     cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "dhis2"
+    project-id: "pht-01hrfr2t7yq"
 spec:
   name: "dhis2.beta.phac-aspc.gc.ca."
   type: "NS"

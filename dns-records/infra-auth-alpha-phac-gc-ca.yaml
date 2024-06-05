@@ -4,8 +4,10 @@ metadata:
   name: infra-auth-alpha-phac-gc-ca
   namespace: config-control
   annotations:
-    projectName: "Infrastructure SSO"
     cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "infrastructure-sso"
 spec:
   name: "infra-auth.alpha.phac.gc.ca."
   type: "NS"

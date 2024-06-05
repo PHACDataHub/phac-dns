@@ -4,9 +4,11 @@ metadata:
   name: ky-alpha-phac-gc-ca
   namespace: config-control
   annotations:
-    projectName: "test ky"
     sourceCodeRepository: "https://github.com/tcaky/getting-rusty"
     cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "test-ky"
 spec:
   name: "ky.alpha.phac.gc.ca."
   type: "NS"

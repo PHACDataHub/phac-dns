@@ -4,10 +4,12 @@ metadata:
   name: shiny-alpha-phac-aspc-gc-ca
   namespace: config-control
   annotations:
-    projectName: "django-shiny"
-    projectId: "pht-01hhmqtnrpf"
     sourceCodeRepository: "https://github.com/PHACDataHub/django-shiny"
     cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "django-shiny"
+    project-id: "pht-01hhmqtnrpf"
 spec:
   name: "shiny.alpha.phac-aspc.gc.ca."
   type: "NS"
