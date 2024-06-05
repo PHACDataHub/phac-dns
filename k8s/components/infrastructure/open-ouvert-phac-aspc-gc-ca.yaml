@@ -5,7 +5,6 @@ metadata:
   annotations:
     cnrm.cloud.google.com/force-destroy: "false"
     cnrm.cloud.google.com/project-id: php-01hhmj81fhp
-    cnrm.cloud.google.com/deletion-policy: abandon
   name: open-ouvert-phac-aspc-gc-ca
 spec:
   dnsName: open-ouvert.phac-aspc.gc.ca.
