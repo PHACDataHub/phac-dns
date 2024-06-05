@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- alpha-aspc-gc-ca.yaml
+- alpha-phac-aspc-gc-ca.yaml
+- alpha-phac-gc-ca.yaml
+- api-ipa-phac-aspc-gc-ca.yaml
+- api-phac-gc-ca.yaml
+- beta-aspc-gc-ca.yaml
+- beta-phac-aspc-gc-ca.yaml
+- beta-phac-gc-ca.yaml
+- data-donnees-phac-aspc-gc-ca.yaml
+- data-phac-gc-ca.yaml
+- donnees-aspc-gc-ca.yaml
+- ipa-aspc-gc-ca.yaml
+- open-ouvert-phac-aspc-gc-ca.yaml
+- open-phac-gc-ca.yaml
+- ouvert-aspc-gc-ca.yaml
+
+commonLabels:
+  controlled-by: phac-dns
