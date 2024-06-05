@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 2m
-  path: ./k8s/infrastructure/controllers
+  path: ./k8s/components/controllers
   prune: true
   sourceRef:
     kind: GitRepository
@@ -18,7 +18,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 2m
-  path: ./k8s/infrastructure/configs
+  path: ./k8s/components/configs
   prune: true
   sourceRef:
     kind: GitRepository
