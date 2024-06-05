@@ -56,7 +56,7 @@ gcloud projects add-iam-policy-binding "${GOOGLE_CLOUD_PROJECT}" \
 
 gcloud iam service-accounts add-iam-policy-binding \                                                                                                                                                                                                                  py base gcloud pht-scienceportal
   "sa-${GOOGLE_CLOUD_PROJECT}-phac-dns@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com" \
-  --member="serviceAccount:${GOOGLE_CLOUD_PROJECT}.svc.id.goog[cnrm-system/cnrm-controller-manager-cnrm-system]" \
+  --member="serviceAccount:${GOOGLE_CLOUD_PROJECT}.svc.id.goog[cnrm-system/cnrm-controller-manager-dns]" \
   --role="roles/iam.workloadIdentityUser" \
   --project ${GOOGLE_CLOUD_PROJECT}
     
