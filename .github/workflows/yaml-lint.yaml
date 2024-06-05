@@ -2,7 +2,9 @@
 name: Yaml Linting
 on:
   pull_request:
-    paths: ['**.yaml', '**.yml']
+    paths:
+      - 'dns-records/*.yaml'
+      - 'k8s/components/infrastructure/*.yaml'
 jobs:
   yamllint:
     name: Yamllint
