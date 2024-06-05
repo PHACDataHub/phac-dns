@@ -2,7 +2,7 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: llm-alpha-phac-gc-ca
-  namespace: config-control
+  namespace: dns
   annotations:
     projectName: "data-science-llm"
     projectId: "phx-datasciencellm"

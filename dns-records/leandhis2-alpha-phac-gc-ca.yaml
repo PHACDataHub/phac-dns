@@ -2,7 +2,7 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: leandhis2-alpha-phac-gc-ca
-  namespace: config-control
+  namespace: dns
   annotations:
     projectName: "dhis2 lean infra"
     projectId: "pht-01hrfr2t7yq"

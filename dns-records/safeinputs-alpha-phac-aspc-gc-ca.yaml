@@ -2,7 +2,7 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: safeinputs-alpha-phac-aspc-gc-ca
-  namespace: config-control
+  namespace: dns
   annotations:
     projectName: "Safe Inputs"
     projectId: "pdcp-cloud-005-safeinputs"

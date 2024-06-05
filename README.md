@@ -55,7 +55,7 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: <zone-name>
-  namespace: config-control
+  namespace: dns
   annotations:
     projectName: "<project-name>"
     # projectId is the unique identifier for the project associated. i.e. phx-a345f39bv23
