@@ -58,7 +58,6 @@ metadata:
   namespace: config-control
   annotations:
     sourceCodeRepository: "<sourceCodeRepository>"
-    cnrm.cloud.google.com/deletion-policy: abandon
     # The following annotations are optional - please comment out or remove lines that are not applicable
     serviceEndpointUrls: "<comma-separated-list-of-service url endpoints>"
     containerRegistries: "<comma-separated-list-of-container-registries>"
