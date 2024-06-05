@@ -4,9 +4,12 @@ metadata:
   name: hopic-data-phac-gc-ca
   namespace: dns
   annotations:
-    projectName: "hopic"
-    projectId: "pht-01hp04dtnkf"
     sourceCodeRepository: "https://github.com/PHACDataHub/cpho-phase2/"
+    cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "hopic"
+    project-id: "pht-01hp04dtnkf"
 spec:
   name: "hopic-sdpac.data.phac.gc.ca."
   type: "NS"

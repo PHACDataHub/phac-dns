@@ -4,9 +4,12 @@ metadata:
   name: jitaccess-alpha-phac-aspc-gc-ca
   namespace: dns
   annotations:
-    projectName: "JIT Access"
-    projectId: "php-01h3hm7kdb24pb3c972cc50nh5"
     sourceCodeRepository: "https://github.com/PHACDataHub/JIT-IaC"
+    cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "jit-access"
+    project-id: "php-01h3hm7kdb24pb3c972cc50nh5"
 spec:
   name: "jitaccess.alpha.phac-aspc.gc.ca."
   type: "NS"

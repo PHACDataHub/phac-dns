@@ -4,9 +4,12 @@ metadata:
   name: llm-alpha-phac-gc-ca
   namespace: dns
   annotations:
-    projectName: "data-science-llm"
-    projectId: "phx-datasciencellm"
     sourceCodeRepository: "https://github.com/PHACDataHub/llm-playground"
+    cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "data-science-llm"
+    project-id: "phx-datasciencellm"
 spec:
   name: "llm.alpha.phac.gc.ca."
   type: "NS"

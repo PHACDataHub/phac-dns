@@ -57,15 +57,19 @@ metadata:
   name: <zone-name>
   namespace: dns
   annotations:
-    projectName: "<project-name>"
-    # projectId is the unique identifier for the project associated. i.e. phx-a345f39bv23
-    projectId: "ph?-1234567890"
     sourceCodeRepository: "<sourceCodeRepository>"
+    cnrm.cloud.google.com/deletion-policy: abandon
     # The following annotations are optional - please comment out or remove lines that are not applicable
     serviceEndpointUrls: "<comma-separated-list-of-service url endpoints>"
     containerRegistries: "<comma-separated-list-of-container-registries>"
-    apmId: <apm-id>
-
+  # Label keys and values can contain only lowercase letters, numeric characters, underscores, and dashes.
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "<project-name>"
+    # project-id is the unique identifier for the project associated. i.e. phx-a345f39bv23
+    project-id: "ph?-1234567890"
+    # The following label is optional - please comment out or remove line if not applicable
+    apm-id: <apm-id>
 spec:
   name: "<DNS-name>"
   type: "NS"
