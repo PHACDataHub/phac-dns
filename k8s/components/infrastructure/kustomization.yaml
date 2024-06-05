@@ -18,7 +18,7 @@ resources:
 - ouvert-aspc-gc-ca.yaml
 
 commonLabels:
-  controlled-by: phac-dns
+  controlled-by: "phac-dns"
 
 commonAnnotations:
   cnrm.cloud.google.com/deletion-policy: "abandon"
