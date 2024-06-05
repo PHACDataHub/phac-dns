@@ -5,7 +5,6 @@ metadata:
   namespace: dns
   annotations:
     sourceCodeRepository: "https://github.com/PHACDataHub/safe-inputs"
-    cnrm.cloud.google.com/deletion-policy: abandon
   labels:
     controlled-by: "phac-dns"
     project-name: "safe-inputs"
