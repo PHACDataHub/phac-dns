@@ -1,7 +1,6 @@
 {
-	"name": "Simplified Docker from Docker",
+	"name": "GCP Enabled Container",
 	"mounts": [
-		"source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
 		"source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached",
 		"source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached"
 	],
@@ -44,7 +43,7 @@
 	// "remoteUser": "vscode",
 	"build": {
 		"dockerfile": "Dockerfile",
-		"options": ["--init"],
+		//"options": ["--init"],
 		"args": {
 			"UPGRADE_PACKAGES": "true"
 		}
