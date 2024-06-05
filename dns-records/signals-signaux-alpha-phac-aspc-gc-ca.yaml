@@ -1,21 +1,21 @@
 apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
-  name: hopic-data-donnes-phac-aspc-gc-ca
+  name: signals-signaux-alpha-phac-aspc-gc-ca
   namespace: config-control
   annotations:
-    sourceCodeRepository: "https://github.com/PHACDataHub/cpho-phase2/"
+    sourceCodeRepository: "https://github.com/PHACDataHub/foresight/"
     cnrm.cloud.google.com/deletion-policy: abandon
   labels:
     controlled-by: "phac-dns"
-    project-name: "hopic"
-    project-id: "pht-01hp04dtnkf"
+    project-name: "signal-detection-platform"
+    project-id: "phx-01hnapr4ab4"
 spec:
-  name: "hopic-sdpac.data-donnes.phac-aspc.gc.ca."
+  name: "signals-signaux.alpha.phac-aspc.gc.ca."
   type: "NS"
   ttl: 300
   managedZoneRef:
-    external: data-donnes-phac-aspc-gc-ca
+    external: alpha-phac-aspc-gc-ca
   rrdatas:
     - ns-cloud-e1.googledomains.com.
     - ns-cloud-e2.googledomains.com.

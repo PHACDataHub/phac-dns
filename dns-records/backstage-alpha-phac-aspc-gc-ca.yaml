@@ -4,9 +4,12 @@ metadata:
   name: backstage-alpha-phac-aspc-gc-ca
   namespace: config-control
   annotations:
-    projectName: "sci-portal"
-    projectId: "pht-01hsv4d2m0n"
     sourceCodeRepository: "https://github.com/PHACDataHub/sci-portal"
+    cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "sci-portal"
+    project-id: "pht-01hsv4d2m0n"
 spec:
   name: "backstage.alpha.phac-aspc.gc.ca."
   type: "NS"

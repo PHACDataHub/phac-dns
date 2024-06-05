@@ -4,9 +4,12 @@ metadata:
   name: safeinputs-alpha-phac-aspc-gc-ca
   namespace: config-control
   annotations:
-    projectName: "Safe Inputs"
-    projectId: "pdcp-cloud-005-safeinputs"
     sourceCodeRepository: "https://github.com/PHACDataHub/safe-inputs"
+    cnrm.cloud.google.com/deletion-policy: abandon
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "safe-inputs"
+    project-id: "pdcp-cloud-005-safeinputs"
 spec:
   name: "safeinputs.alpha.phac-aspc.gc.ca."
   type: "NS"

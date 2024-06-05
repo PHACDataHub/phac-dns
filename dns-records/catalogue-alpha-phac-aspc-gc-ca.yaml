@@ -1,17 +1,17 @@
 apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
-  name: shiny-alpha-phac-aspc-gc-ca
+  name: catalogue-alpha-phac-aspc-gc-ca
   namespace: config-control
   annotations:
-    sourceCodeRepository: "https://github.com/PHACDataHub/django-shiny"
+    sourceCodeRepository: "https://github.com/PHACDataHub/data-catalog/"
     cnrm.cloud.google.com/deletion-policy: abandon
   labels:
     controlled-by: "phac-dns"
-    project-name: "django-shiny"
-    project-id: "pht-01hhmqtnrpf"
+    project-name: "phemu-platdev-datacatalogue"
+    project-id: "phemu-platdev-datacatalogue"
 spec:
-  name: "shiny.alpha.phac-aspc.gc.ca."
+  name: "catalogue.alpha.phac-aspc.gc.ca."
   type: "NS"
   ttl: 300
   managedZoneRef:
