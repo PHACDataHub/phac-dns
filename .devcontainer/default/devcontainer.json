@@ -13,6 +13,8 @@
 
     // https://containers.dev/features
     "features": {
+		// https://github.com/dhoeric/features/tree/main/src/google-cloud-cli
+		"ghcr.io/dhoeric/features/google-cloud-cli:1": {},
 		// https://github.com/eitsupi/devcontainer-features/tree/main/src/jq-likes
 		"ghcr.io/eitsupi/devcontainer-features/jq-likes:2.1.0": {
 			"yqVersion": "latest"

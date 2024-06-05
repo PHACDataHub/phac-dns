@@ -15,7 +15,7 @@ ARG USER_GID=$USER_UID
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 RUN apt-get update
-RUN apt-get install -y google-cloud-cli
+# RUN apt-get install -y google-cloud-cli
 
 # # [Optional] If you need kubectl command.
 RUN apt-get install kubectl -y
@@ -24,8 +24,10 @@ RUN apt-get install kubectl -y
 RUN apt-get install google-cloud-cli-kpt
 
 # Let's get neovim!
-RUN apt update
-RUN apt install neovim
+RUN curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+RUN sudo rm -rf /opt/nvim
+RUN sudo tar -C /opt -xzf nvim-linux64.tar.gz
+
 
 # [Optional] If you need vim and unuse nano.
 # RUN apt-get install vim -y && \
