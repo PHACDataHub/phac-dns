@@ -19,3 +19,7 @@ resources:
 
 commonLabels:
   controlled-by: phac-dns
+
+commonAnnotations:
+  cnrm.cloud.google.com/deletion-policy: "abandon"
+
