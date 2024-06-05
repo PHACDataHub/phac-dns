@@ -2,7 +2,7 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: entreessecurisees-alpha-phac-aspc-gc-ca
-  namespace: config-control
+  namespace: dns
   annotations:
     sourceCodeRepository: "https://github.com/PHACDataHub/safe-inputs"
     cnrm.cloud.google.com/deletion-policy: abandon

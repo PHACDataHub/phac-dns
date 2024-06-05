@@ -55,7 +55,7 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: <zone-name>
-  namespace: config-control
+  namespace: dns
   annotations:
     sourceCodeRepository: "<sourceCodeRepository>"
     cnrm.cloud.google.com/deletion-policy: abandon

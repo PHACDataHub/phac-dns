@@ -3,8 +3,7 @@ name: Validate zone
 on:
   pull_request:
     paths:
-      - 'dns-records/**/*.yaml'
-      - 'dns-records/**/*.yml'
+      - 'dns-records/*.yaml'
 
 jobs:
   validate-zone:

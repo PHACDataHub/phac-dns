@@ -3,8 +3,7 @@ name: Validate mandatory fields
 on:
   pull_request:
     paths:
-      - 'dns-records/**/*.yaml'
-      - 'dns-records/**/*.yml'
+      - 'dns-records/*.yaml'
 
 jobs:
   validate-mandatory-fields:

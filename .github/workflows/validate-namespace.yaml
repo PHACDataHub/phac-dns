@@ -3,8 +3,7 @@ name: Validate config-control Namespace
 on:
   pull_request:
     paths:
-      - 'dns-records/**/*.yaml'
-      - 'dns-records/**/*.yml'
+      - 'dns-records/*.yaml'
 
 jobs:
   validate-namespace:
@@ -23,7 +22,7 @@ jobs:
       id: validate-namespace
       run: |
         yaml_files=()
-        EXPECTED_NAMESPACE='config-control'
+        EXPECTED_NAMESPACE='dns'
         error_occurred=0
         
         # Find yml/yaml files that have been changed    
