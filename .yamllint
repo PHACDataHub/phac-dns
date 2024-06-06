@@ -7,6 +7,9 @@ yaml-files:
 ignore: |
   .github/
   docs/
+  k8s/clusters/
+  k8s/components/configs
+  k8s/components/controllers
 
 rules:
   braces: disable
