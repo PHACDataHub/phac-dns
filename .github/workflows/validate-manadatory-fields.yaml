@@ -25,9 +25,10 @@ jobs:
           kind
           metadata.name
           metadata.namespace
-          metadata.annotations.projectName
-          metadata.annotations.projectId
           metadata.annotations.sourceCodeRepository
+          metadata.labels.controlled-by
+          metadata.labels.project-name
+          metadata.labels.project-id
           spec.name
           spec.type
           spec.ttl
