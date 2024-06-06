@@ -3,8 +3,6 @@ kind: DNSRecordSet
 metadata:
   name: infra-auth-alpha-phac-gc-ca
   namespace: dns
-  annotations:
-    cnrm.cloud.google.com/deletion-policy: abandon
   labels:
     controlled-by: "phac-dns"
     project-name: "infrastructure-sso"

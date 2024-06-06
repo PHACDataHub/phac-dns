@@ -5,7 +5,6 @@ metadata:
   namespace: dns
   annotations:
     sourceCodeRepository: "https://github.com/PHACDataHub/cpho-phase2/"
-    cnrm.cloud.google.com/deletion-policy: abandon
   labels:
     controlled-by: "phac-dns"
     project-name: "hopic"

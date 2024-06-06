@@ -6,6 +6,11 @@ We are modernizing our data management at the Public Health Agency of Canada (PH
 
 ## Domains
 
+> [!IMPORTANT]
+> Due an upstream issue, none of the subdomains on `phac-aspc.gc.ca` will resolve correctly in the PHAC office network. If you have users accessing your service from an on-prem environment, we recommend that you consider using one of the unilingual domains.
+>
+> This admonition will be removed once the issue is fixed.
+
 The current domains we have control over are below:
 
 ### Alpha: ​​
