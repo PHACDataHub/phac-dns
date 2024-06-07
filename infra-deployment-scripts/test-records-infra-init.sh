@@ -29,11 +29,6 @@ gcloud container clusters create-auto "records-test-phac-dns" \
    --project=${GOOGLE_CLOUD_PROJECT} \
    --service-account="sa-${GOOGLE_CLOUD_PROJECT}-gke@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com"
 
-# create static ip address
-gcloud compute addresses create "records-test-ip" \
-  --project="${GOOGLE_CLOUD_PROJECT}" \
-  --region=northamerica-northeast1 \
-
 # add ASM and bind cluster to fleet
 gcloud container clusters update "records-test-phac-dns" --location=northamerica-northeast1 \
   --fleet-project=${GOOGLE_CLOUD_PROJECT} \
@@ -43,14 +38,18 @@ gcloud container clusters update "records-test-phac-dns" --location=northamerica
   --project=${GOOGLE_CLOUD_PROJECT} \
   --update-labels=mesh_id=proj-$(gcloud projects describe ${GOOGLE_CLOUD_PROJECT} --format="value(projectNumber)")
 
-gcloud container fleet memberships register ${GKE_CLUSTER_NAME}-membership \
-  --gke-cluster=${GKE_LOCATION}/${GKE_CLUSTER_NAME} \
-  --enable-workload-identity \
-  --project ${PROJECT_ID}
-
 # change fleet management to automatic
 gcloud container fleet mesh update \
  --management=automatic \
  --memberships=records-test-phac-dns \
  --project=${GOOGLE_CLOUD_PROJECT} \
  --location=northamerica-northeast1
+
+# create proxy-only subnet for gateway api
+gcloud compute networks subnets create "${GOOGLE_CLOUD_PROJECT}-vpc-01-proxysub-01" \
+  --network "projects/${GOOGLE_CLOUD_PROJECT}/global/networks/${GOOGLE_CLOUD_PROJECT}-vpc-01" \
+  --purpose REGIONAL_MANAGED_PROXY \
+  --role ACTIVE \
+  --region northamerica-northeast1 \
+  --range 10.129.0.0/23 \
+  --project ${GOOGLE_CLOUD_PROJECT}
