@@ -1,0 +1,14 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-beta-phac-aspc
+  namespace: dns
+spec:
+  name: "canary.beta.phac-aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: beta-phac-aspc-gc-ca
+  rrdatas:
+    - "35.215.12.2"
+---

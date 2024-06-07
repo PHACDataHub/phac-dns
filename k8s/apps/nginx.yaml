@@ -1,0 +1,75 @@
+apiVersion: v1
+data:
+  index.html: |
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>Nginx</title>
+    </head>
+    <body>
+      <h2>Hello World! This is a prod URL!</h2>
+    </body>
+    </html>
+kind: ConfigMap
+metadata:
+  name: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    service: nginx
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  selector:
+    app: nginx
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: nginx
+        version: v1
+    spec:
+      containers:
+      - name: istio-proxy
+        image: auto
+        resources:
+          requests:
+            cpu: 50m
+            memory: 112Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+      - image: cgr.dev/chainguard/nginx:latest
+        imagePullPolicy: IfNotPresent
+        name: nginx
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 200m
+            memory: 400Mi
+        securityContext:
+          allowPrivilegeEscalation: false
+        volumeMounts:
+        - name: nginx-html
+          mountPath: /usr/share/nginx/html/
+      volumes:
+        - name: nginx-html
+          configMap:
+            name: nginx
