@@ -12,6 +12,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-beta-phac-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.beta.phac-aspc.gc.ca."
   type: A
@@ -27,6 +33,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-alpha-phac-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.alpha.phac-aspc.gc.ca."
   type: A
@@ -42,6 +54,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-api-ipa-phac-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.api-ipa.phac-aspc.gc.ca."
   type: A
@@ -57,6 +75,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-data-donnees-phac-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.data-donnees.phac-aspc.gc.ca."
   type: A
@@ -72,6 +96,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-open-ouvert-phac-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.open-ouvert.phac-aspc.gc.ca."
   type: A
@@ -93,6 +123,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-beta-phac
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.beta.phac.gc.ca."
   type: A
@@ -108,6 +144,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-alpha-phac
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.alpha.phac.gc.ca."
   type: A
@@ -123,6 +165,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-api-phac
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.api.phac.gc.ca."
   type: A
@@ -138,6 +186,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-data-phac
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.data.phac.gc.ca."
   type: A
@@ -153,6 +207,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-open-phac
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.open.phac.gc.ca."
   type: A
@@ -173,6 +233,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-beta-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.beta.aspc.gc.ca."
   type: A
@@ -188,6 +254,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-alpha-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.alpha.aspc.gc.ca."
   type: A
@@ -203,6 +275,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-ipa-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.ipa.aspc.gc.ca."
   type: A
@@ -218,6 +296,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-donnees-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.donnees.aspc.gc.ca."
   type: A
@@ -233,6 +317,12 @@ kind: DNSRecordSet
 metadata:
   name: canary-ouvert-aspc
   namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phac-dns"
+    project-id: "php-01hhmj81fhp"
 spec:
   name: "canary.ouvert.aspc.gc.ca."
   type: A
