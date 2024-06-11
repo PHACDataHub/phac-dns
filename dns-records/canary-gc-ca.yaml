@@ -1,0 +1,245 @@
+# These record sets are meant for internally testing domains
+
+#        _
+#  _ __ | |__   __ _  ___       __ _ ___ _ __   ___
+# | '_ \| '_ \ / _` |/ __|____ / _` / __| '_ \ / __|
+# | |_) | | | | (_| | (_|_____| (_| \__ \ |_) | (__
+# | .__/|_| |_|\__,_|\___|     \__,_|___/ .__/ \___|
+# |_|                                   |_|
+
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-beta-phac-aspc
+  namespace: dns
+spec:
+  name: "canary.beta.phac-aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: beta-phac-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-alpha-phac-aspc
+  namespace: dns
+spec:
+  name: "canary.alpha.phac-aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: alpha-phac-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-api-ipa-phac-aspc
+  namespace: dns
+spec:
+  name: "canary.api-ipa.phac-aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: api-ipa-phac-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-data-donnees-phac-aspc
+  namespace: dns
+spec:
+  name: "canary.data-donnees.phac-aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: data-donnees-phac-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-open-ouvert-phac-aspc
+  namespace: dns
+spec:
+  name: "canary.open-ouvert.phac-aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: open-ouvert-phac-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+#        _
+#  _ __ | |__   __ _  ___
+# | '_ \| '_ \ / _` |/ __|
+# | |_) | | | | (_| | (__
+# | .__/|_| |_|\__,_|\___|
+# |_|
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-beta-phac
+  namespace: dns
+spec:
+  name: "canary.beta.phac.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: beta-phac-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-alpha-phac
+  namespace: dns
+spec:
+  name: "canary.alpha.phac.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: alpha-phac-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-api-phac
+  namespace: dns
+spec:
+  name: "canary.api.phac.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: api-phac-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-data-phac
+  namespace: dns
+spec:
+  name: "canary.data.phac.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: data-phac-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-open-phac
+  namespace: dns
+spec:
+  name: "canary.open.phac.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: open-phac-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+#   __ _ ___ _ __   ___
+#  / _` / __| '_ \ / __|
+# | (_| \__ \ |_) | (__
+#  \__,_|___/ .__/ \___|
+#           |_|
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-beta-aspc
+  namespace: dns
+spec:
+  name: "canary.beta.aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: beta-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-alpha-aspc
+  namespace: dns
+spec:
+  name: "canary.alpha.aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: alpha-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-ipa-aspc
+  namespace: dns
+spec:
+  name: "canary.ipa.aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: ipa-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-donnees-aspc
+  namespace: dns
+spec:
+  name: "canary.donnees.aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: donnees-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: canary-ouvert-aspc
+  namespace: dns
+spec:
+  name: "canary.ouvert.aspc.gc.ca."
+  type: A
+  ttl: 300
+  managedZoneRef:
+    name: ouvert-aspc-gc-ca
+  rrdatasRefs:
+    - name: canary-ip
+      kind: ComputeAddress
+---
