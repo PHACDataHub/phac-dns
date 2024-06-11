@@ -21,7 +21,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: beta-phac-aspc-gc-ca
+    external: beta-phac-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -42,7 +42,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: alpha-phac-aspc-gc-ca
+    external: alpha-phac-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -63,7 +63,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: api-ipa-phac-aspc-gc-ca
+    external: api-ipa-phac-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -84,7 +84,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: data-donnees-phac-aspc-gc-ca
+    external: data-donnees-phac-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -105,7 +105,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: open-ouvert-phac-aspc-gc-ca
+    external: open-ouvert-phac-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -132,7 +132,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: beta-phac-gc-ca
+    external: beta-phac-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -153,7 +153,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: alpha-phac-gc-ca
+    external: alpha-phac-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -174,7 +174,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: api-phac-gc-ca
+    external: api-phac-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -195,7 +195,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: data-phac-gc-ca
+    external: data-phac-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -216,7 +216,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: open-phac-gc-ca
+    external: open-phac-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -242,7 +242,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: beta-aspc-gc-ca
+    external: beta-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -263,7 +263,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: alpha-aspc-gc-ca
+    external: alpha-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -284,7 +284,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: ipa-aspc-gc-ca
+    external: ipa-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -305,7 +305,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: donnees-aspc-gc-ca
+    external: donnees-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
@@ -326,7 +326,7 @@ spec:
   type: A
   ttl: 300
   managedZoneRef:
-    name: ouvert-aspc-gc-ca
+    external: ouvert-aspc-gc-ca
   rrdatasRefs:
     - name: canary-ip
       kind: ComputeAddress
