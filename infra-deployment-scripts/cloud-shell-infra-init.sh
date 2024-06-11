@@ -84,3 +84,8 @@ gcloud container clusters create-auto "${GOOGLE_CLOUD_PROJECT}-phac-dns" \
    --subnetwork="projects/${GOOGLE_CLOUD_PROJECT}/regions/northamerica-northeast1/subnetworks/${GOOGLE_CLOUD_PROJECT}-vpc-01-sub-01" \
    --project=${GOOGLE_CLOUD_PROJECT} \
    --service-account="sa-${GOOGLE_CLOUD_PROJECT}-gke@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com"
+
+# ip address to internally test domains via nslookup
+gcloud compute addresses create "canary-test" \
+  --project=${GOOGLE_CLOUD_PROJECT} \
+  --region=northamerica-northeast1
