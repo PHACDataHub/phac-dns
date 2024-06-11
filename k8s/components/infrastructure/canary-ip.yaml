@@ -1,0 +1,12 @@
+apiVersion: compute.cnrm.cloud.google.com/v1beta1
+kind: ComputeAddress
+metadata:
+  name: canary-ip
+  namespace: dns
+  annotations:
+    cnrm.cloud.google.com/state-into-spec: merge
+spec:
+  description: Static external ip address to test domains internally via nslookup
+  addressType: EXTERNAL
+  location: northamerica-northeast1
+  networkTier: STANDARD

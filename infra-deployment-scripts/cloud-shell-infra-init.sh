@@ -54,6 +54,12 @@ gcloud projects add-iam-policy-binding "${GOOGLE_CLOUD_PROJECT}" \
     --role "roles/dns.admin" \
     --project "${GOOGLE_CLOUD_PROJECT}"
 
+# Add IAM policy binding for managing compute ips
+gcloud projects add-iam-policy-binding "${GOOGLE_CLOUD_PROJECT}" \
+    --member "serviceAccount:sa-${GOOGLE_CLOUD_PROJECT}-phac-dns@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com" \
+    --role "roles/compute.publicIpAdmin" \
+    --project "${GOOGLE_CLOUD_PROJECT}"
+
 gcloud iam service-accounts add-iam-policy-binding \                                                                                                                                                                                                                  py base gcloud pht-scienceportal
   "sa-${GOOGLE_CLOUD_PROJECT}-phac-dns@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com" \
   --member="serviceAccount:${GOOGLE_CLOUD_PROJECT}.svc.id.goog[cnrm-system/cnrm-controller-manager-dns]" \
@@ -84,3 +90,4 @@ gcloud container clusters create-auto "${GOOGLE_CLOUD_PROJECT}-phac-dns" \
    --subnetwork="projects/${GOOGLE_CLOUD_PROJECT}/regions/northamerica-northeast1/subnetworks/${GOOGLE_CLOUD_PROJECT}-vpc-01-sub-01" \
    --project=${GOOGLE_CLOUD_PROJECT} \
    --service-account="sa-${GOOGLE_CLOUD_PROJECT}-gke@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com"
+
