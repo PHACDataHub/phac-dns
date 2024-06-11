@@ -17,6 +17,7 @@ resources:
   - open-phac-gc-ca.yaml
   - ouvert-aspc-gc-ca.yaml
   - canary-ip.yaml
+  - canary-gc-ca.yaml
 commonLabels:
   controlled-by: "phac-dns"
 commonAnnotations:
