@@ -1,0 +1,23 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: is-it-signed-alpha-phac-gc-ca
+  namespace: dns
+  annotations:
+    sourceCodeRepository: "none"
+    description: "Temporary domain for cloud run application"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "is-it-signed"
+    project-id: "phx-01hwmw2c1r4"
+spec:
+  name: "is-it-signed.alpha.phac.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-gc-ca
+  rrdatas:
+    - ns-cloud-d1.googledomains.com.
+    - ns-cloud-d2.googledomains.com.
+    - ns-cloud-d3.googledomains.com.
+    - ns-cloud-d4.googledomains.com.
