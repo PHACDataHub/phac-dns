@@ -1,12 +1,10 @@
 # These record sets are meant for internally testing domains
-
 #        _
 #  _ __ | |__   __ _  ___       __ _ ___ _ __   ___
 # | '_ \| '_ \ / _` |/ __|____ / _` / __| '_ \ / __|
 # | |_) | | | | (_| | (_|_____| (_| \__ \ |_) | (__
 # | .__/|_| |_|\__,_|\___|     \__,_|___/ .__/ \___|
 # |_|                                   |_|
-
 apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
