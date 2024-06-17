@@ -10,7 +10,7 @@ metadata:
     project-name: "phx-simardeepsingh"
     project-id: "phx-01had7ny8p"
 spec:
-  name: harbor.alpha.phac.gc.ca."
+  name: alpha.phac.gc.ca."
   type: "NS"
   ttl: 300
   managedZoneRef:
