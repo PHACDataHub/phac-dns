@@ -1,0 +1,22 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: harbor-alpha-phac-gc-ca
+  namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/simardeep1792/harbor-k8s"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phx-simardeepsingh"
+    project-id: "phx-01had7ny8p"
+spec:
+  name: harbor.alpha.phac.gc.ca.
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-gc-ca
+  rrdatas:
+    - ns-cloud-c1.googledomains.com.
+    - ns-cloud-c2.googledomains.com.
+    - ns-cloud-c3.googledomains.com.
+    - ns-cloud-c4.googledomains.com.
