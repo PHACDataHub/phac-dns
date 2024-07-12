@@ -8,7 +8,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "safe-inputs"
-    project-id: "pdcp-cloud-005-safeinputs"
+    project-id: "phx-01j1tbke0ax"
 spec:
   name: "safeinputs.alpha.phac-aspc.gc.ca."
   type: "NS"
@@ -16,7 +16,7 @@ spec:
   managedZoneRef:
     external: alpha-phac-aspc-gc-ca
   rrdatas:
-    - ns-cloud-c1.googledomains.com.
-    - ns-cloud-c2.googledomains.com.
-    - ns-cloud-c3.googledomains.com.
-    - ns-cloud-c4.googledomains.com.
+    - ns-cloud-a1.googledomains.com.
+    - ns-cloud-a2.googledomains.com.
+    - ns-cloud-a3.googledomains.com.
+    - ns-cloud-a4.googledomains.com.
