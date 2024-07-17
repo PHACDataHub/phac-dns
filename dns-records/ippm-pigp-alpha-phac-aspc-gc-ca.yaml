@@ -1,0 +1,22 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: ippm-pigp-alpha-phac-aspc-gc-ca
+  namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/HC-IPPM/IPPM"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "ippm"
+    project-id: "php-01j2hnp8fyq"
+spec:
+  name: "ippm-pigp.alpha.phac-aspc.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-aspc-gc-ca
+  rrdatas:
+    - ns-cloud-c1.googledomains.com.
+    - ns-cloud-c2.googledomains.com.
+    - ns-cloud-c3.googledomains.com.
+    - ns-cloud-c4.googledomains.com.
