@@ -1,0 +1,22 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: ors-sro-alpha-phac-aspc-gc-ca
+  namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/HC-IPPM/openrouteservice"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "openrouteservice"
+    project-id: "phx-01j3dtrkz4x"
+spec:
+  name: "ors-sro.alpha.phac-aspc.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-aspc-gc-ca
+  rrdatas:
+    - ns-cloud-a1.googledomains.com.
+    - ns-cloud-a2.googledomains.com.
+    - ns-cloud-a3.googledomains.com.
+    - ns-cloud-a4.googledomains.com.
