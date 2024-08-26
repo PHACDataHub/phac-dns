@@ -7,8 +7,8 @@ metadata:
     sourceCodeRepository: "https://github.com/PHACDataHub/data-catalog/"
   labels:
     controlled-by: "phac-dns"
-    project-name: "phemu-platdev-datacatalogue"
-    project-id: "phemu-platdev-datacatalogue"
+    project-name: "phx-datacatalog"
+    project-id: "phx-01j42bp895z"
 spec:
   name: "catalogue.alpha.phac-aspc.gc.ca."
   type: "NS"
@@ -16,7 +16,7 @@ spec:
   managedZoneRef:
     external: alpha-phac-aspc-gc-ca
   rrdatas:
-    - ns-cloud-a1.googledomains.com.
-    - ns-cloud-a2.googledomains.com.
-    - ns-cloud-a3.googledomains.com.
-    - ns-cloud-a4.googledomains.com.
+    - ns-cloud-c1.googledomains.com.
+    - ns-cloud-c2.googledomains.com.
+    - ns-cloud-c3.googledomains.com.
+    - ns-cloud-c4.googledomains.com.
