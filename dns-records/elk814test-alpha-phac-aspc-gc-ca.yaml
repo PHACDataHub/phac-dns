@@ -1,0 +1,22 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: elk814test-alpha-phac-aspc-gc-ca
+  namespace: dns
+  annotations:
+    sourceCodeRepository: "None"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "phx-zacharynick"
+    project-id: "phx-zacharynick"
+spec:
+  name: "elk814test.alpha.phac-aspc.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-aspc-gc-ca
+  rrdatas:
+    - ns-cloud-a1.googledomains.com.
+    - ns-cloud-a2.googledomains.com.
+    - ns-cloud-a3.googledomains.com.
+    - ns-cloud-a4.googledomains.com.
