@@ -87,7 +87,7 @@ Once the PR is merged, Flux will propagate the changes.
 To [upgrade config connector](https://cloud.google.com/config-connector/docs/how-to/install-manually#upgrading) on the cluster, run the following commands from the root of this repository and submit a PR with changes:
 
 ```sh
-gsutil cp gs://configconnector-operator/latest/release-bundle.tar.gz - | tar xvzf - ./operator-system/autopilot-configconnector-operator.yaml
+gsutil cp gs://configconnector-operator/<VERSION>/release-bundle.tar.gz - | tar xvzf - ./operator-system/autopilot-configconnector-operator.yaml
 mv ./operator-system/autopilot-configconnector-operator.yaml ./k8s/components/controllers/
 rm -rf operator-system
 ```
@@ -98,6 +98,3 @@ Once the PR is merged, Flux will propagate the changes.
 
 > See the [official releases](https://github.com/GoogleCloudPlatform/k8s-config-connector/releases) page for more information regarding an upgrade.
 
-
-flux == flux conf
-infrastructure includes all zones, and config-connector CRDs
