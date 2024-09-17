@@ -1,7 +1,6 @@
 # Directory structure
 
-- `infrastructure` dir contains KCC definitions for the DNS zones
-- `components` dir contains controller CRDs (`./components/controllers`) and their configurations (`./components/configs`)
+- `components` dir contains controller CRDs (`./components/controllers`), their configurations (`./components/configs`) and KCC definitions for the DNS zones (`./components/infrastructure`)
 - `clusters` dir contains the Flux configuration per cluster
 
 ```sh
