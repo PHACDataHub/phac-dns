@@ -1,0 +1,22 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: safeinputs-dashboard-alpha-phac-aspc-gc-ca
+  namespace: dns
+  annotations:
+    sourceCodeRepository: "https://github.com/HC-IPPM/cATO-dashboard-safe-inputs"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "cATO-dashboard-safe-inputs"
+    project-id: "phx-01hwmw2c1r4"
+spec:
+  name: "safeinputs-dashboard.alpha.phac-aspc.gc.ca."
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: alpha-phac-aspc-gc-ca
+  rrdatas:
+    - ns-cloud-a1.googledomains.com.
+    - ns-cloud-a2.googledomains.com.
+    - ns-cloud-a3.googledomains.com.
+    - ns-cloud-a4.googledomains.com.
