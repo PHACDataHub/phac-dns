@@ -1,0 +1,35 @@
+vars: {
+  d2-config: {
+    layout-engine: elk
+    # Terminal theme code
+    theme-id: 300
+  }
+}
+dns_sequence: Self-Serve DNS Model {
+  shape: sequence_diagram
+  user: "User" {
+    shape: image
+    icon: https://icons.terrastruct.com/essentials%2F365-user.svg
+  }
+  repo_admin: "Repo Admin" {
+    shape: image
+    icon: https://icons.terrastruct.com/essentials%2F365-user.svg
+  }
+  github: "GitHub" {
+    shape: image
+    icon: https://icons.terrastruct.com/dev%2Fgithub.svg
+  }
+  argocd: "K8s - Argo CD" {
+    shape: image
+    icon: https://raw.githubusercontent.com/PHACDataHub/phac-dns/refs/heads/main/assets/Argo%20CD.png
+  }
+  gcp_cloud_dns: "Cloud DNS" {
+    shape: image
+    icon: https://icons.terrastruct.com/gcp%2FProducts%20and%20services%2FNetworking%2FCloud%20DNS.svg
+  }
+  user -> github: User creates pull \nrequest (PR) for new DNS entry \non an HC/PHAC managed subdomain
+  github -> repo_admin: Repo admin \nnotified of PR
+  repo_admin -> github: PR approved.  YAML \nmerged to main
+  argocd <- github: Argo CD syncs change \nto DNS Kubernetes cluster
+  argocd -> gcp_cloud_dns: Read changes from \ndata synchronized from PHAC-DNS repo\n and create described \nDNS entries
+}

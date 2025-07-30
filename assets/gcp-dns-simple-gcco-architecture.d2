@@ -1,0 +1,29 @@
+vars: {
+  d2-config: {
+    layout-engine: elk
+  }
+}
+direction: right
+SSC GCP Dev: {
+  Shared Cluster Project: {
+    shared cluster: {
+      iidi namespace: {
+        iidi container
+      }
+
+      dns namespace: {
+        NO CONTAINER - ArgoCD sync from GitHub
+      }
+    }
+  }
+  DNS GCP project: {
+    Cloud DNS Zone Records
+  } 
+}
+GitHub: {
+  phac-dns repo: {
+  }
+}
+
+SSC GCP Dev.Shared Cluster Project.shared cluster.dns namespace <- GitHub.phac-dns repo
+SSC GCP Dev.Shared Cluster Project.shared cluster.dns namespace -> SSC GCP Dev.DNS GCP project.Cloud DNS Zone Records
