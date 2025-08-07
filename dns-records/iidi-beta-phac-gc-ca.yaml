@@ -1,0 +1,22 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: iidi-alpha-phac-gc-ca
+  namespace: dns
+  annotations:
+    sourceCodeRepository: "https://dev.azure.com/ssc-spc-cpa/gcpm-plz/_git/gcdm022b-cobra-t34"
+  labels:
+    controlled-by: "phac-dns"
+    project-name: "Unclass dev cobra"
+    project-id: "gcdm022b-cobra"
+spec:
+  name: iidi.beta.phac.gc.ca.
+  type: "NS"
+  ttl: 300
+  managedZoneRef:
+    external: beta-phac-gc-ca
+  rrdatas:
+    - ns-cloud-e1.googledomains.com.
+    - ns-cloud-e2.googledomains.com.
+    - ns-cloud-e3.googledomains.com.
+    - ns-cloud-e4.googledomains.com.
