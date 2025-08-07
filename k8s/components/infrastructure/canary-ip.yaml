@@ -5,6 +5,7 @@ metadata:
   namespace: dns
   annotations:
     cnrm.cloud.google.com/state-into-spec: merge
+    cnrm.cloud.google.com/project-id: gcdm022u-hermit
 spec:
   description: Static external ip address to test domains internally via nslookup
   addressType: EXTERNAL

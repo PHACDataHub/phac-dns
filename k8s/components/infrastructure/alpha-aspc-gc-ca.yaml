@@ -4,7 +4,7 @@ metadata:
   namespace: dns
   annotations:
     cnrm.cloud.google.com/force-destroy: "false"
-    cnrm.cloud.google.com/project-id: php-01hhmj81fhp
+    cnrm.cloud.google.com/project-id: gcdm022u-hermit
   name: alpha-aspc-gc-ca
 spec:
   dnsName: alpha.aspc.gc.ca.
