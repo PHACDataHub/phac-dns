@@ -1,4 +1,4 @@
-apiVersion: dns.cnrm.cloud.google.com/v1beta1
+apiVersion: dns.cnrm.cloud.google.com/v1beta1 #test
 kind: DNSManagedZone
 metadata:
   namespace: dns
