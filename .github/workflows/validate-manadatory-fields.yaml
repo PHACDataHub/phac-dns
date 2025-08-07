@@ -37,7 +37,7 @@ jobs:
         )
 
         # Find changed YAML files
-        yaml_files=($(git diff --name-only HEAD^..HEAD))
+        yaml_files=($(git diff --name-only HEAD^..HEAD | grep '^dns-records/.*\.yaml$'))
 
         # Check if there are any YAML files to process
         if [ "${#yaml_files[@]}" -eq 0 ]; then
