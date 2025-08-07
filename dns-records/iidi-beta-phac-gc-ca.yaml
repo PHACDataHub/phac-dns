@@ -7,7 +7,7 @@ metadata:
     sourceCodeRepository: "https://dev.azure.com/ssc-spc-cpa/gcpm-plz/_git/gcdm022b-cobra-t34"
   labels:
     controlled-by: "phac-dns"
-    project-name: "Unclass dev cobra"
+    project-name: "Unclass-dev-cobra"
     project-id: "gcdm022b-cobra"
 spec:
   name: iidi.beta.phac.gc.ca.
