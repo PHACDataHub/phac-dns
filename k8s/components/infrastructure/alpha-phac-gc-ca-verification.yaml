@@ -1,0 +1,15 @@
+apiVersion: dns.cnrm.cloud.google.com/v1beta1
+kind: DNSRecordSet
+metadata:
+  name: google-verification-alpha
+  namespace: dns
+  annotations:
+    cnrm.cloud.google.com/project-id: gcdm022u-hermit
+spec:
+  name: alpha.phac.gc.ca.
+  type: TXT
+  ttl: 300
+  managedZoneRef:
+    name: alpha-phac-gc-ca
+  rrdatas:
+    - "\"google-site-verification=BA02XwsNNSLuWSuGMd6P2KoruRWjyU0w4mPgahUdFm4\""
