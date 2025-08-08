@@ -4,6 +4,7 @@ resources:
   - alpha-aspc-gc-ca.yaml
   - alpha-phac-aspc-gc-ca.yaml
   - alpha-phac-gc-ca.yaml
+  - alpha-phac-gc-ca-verification.yaml
   - api-ipa-phac-aspc-gc-ca.yaml
   - api-phac-gc-ca.yaml
   - beta-aspc-gc-ca.yaml
