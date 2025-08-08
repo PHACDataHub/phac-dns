@@ -4,7 +4,7 @@ metadata:
   name: alpha-phac-gc-ca-verify
   namespace: dns
   annotations:
-    cnrm.cloud.google.com/project-id: gcdm022u-hermit
+    sourceCodeRepository: "https://github.com/PHACDataHub/phac-dns/"
 spec:
   name: alpha.phac.gc.ca.
   type: TXT
