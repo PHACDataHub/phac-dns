@@ -1,7 +1,7 @@
 apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
-  name: google-verification-alpha
+  name: alpha-phac-gc-ca-verify
   namespace: dns
   annotations:
     cnrm.cloud.google.com/project-id: gcdm022u-hermit
