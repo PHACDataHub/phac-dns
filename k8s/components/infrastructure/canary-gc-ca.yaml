@@ -15,7 +15,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.beta.phac-aspc.gc.ca."
   type: A
@@ -36,7 +36,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.alpha.phac-aspc.gc.ca."
   type: A
@@ -57,7 +57,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.api-ipa.phac-aspc.gc.ca."
   type: A
@@ -78,7 +78,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.data-donnees.phac-aspc.gc.ca."
   type: A
@@ -99,7 +99,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.open-ouvert.phac-aspc.gc.ca."
   type: A
@@ -126,7 +126,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.beta.phac.gc.ca."
   type: A
@@ -147,7 +147,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.alpha.phac.gc.ca."
   type: A
@@ -168,7 +168,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.api.phac.gc.ca."
   type: A
@@ -189,7 +189,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.data.phac.gc.ca."
   type: A
@@ -210,7 +210,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.open.phac.gc.ca."
   type: A
@@ -236,7 +236,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.beta.aspc.gc.ca."
   type: A
@@ -257,7 +257,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.alpha.aspc.gc.ca."
   type: A
@@ -278,7 +278,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.ipa.aspc.gc.ca."
   type: A
@@ -299,7 +299,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.donnees.aspc.gc.ca."
   type: A
@@ -320,7 +320,7 @@ metadata:
   labels:
     controlled-by: "phac-dns"
     project-name: "phac-dns"
-    project-id: "php-01hhmj81fhp"
+    project-id: "gcdm022u-hermit"
 spec:
   name: "canary.ouvert.aspc.gc.ca."
   type: A
@@ -331,3 +331,4 @@ spec:
     - name: canary-ip
       kind: ComputeAddress
 ---
+

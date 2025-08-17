@@ -5,6 +5,8 @@ metadata:
   namespace: dns
   annotations:
     sourceCodeRepository: "https://github.com/simardeep1792/harbor-k8s"
+    cnrm.cloud.google.com/project-id: gcdm022u-hermit
+    cnrm.cloud.google.com/deletion-policy: abandon
   labels:
     controlled-by: "phac-dns"
     project-name: "phx-simardeepsingh"

@@ -5,6 +5,8 @@ metadata:
   namespace: dns
   annotations:
     sourceCodeRepository: "https://dev.azure.com/ssc-spc-cpa/gcpm-plz/_git/gcdm022b-cobra-t34"
+    cnrm.cloud.google.com/project-id: gcdm022u-hermit
+    cnrm.cloud.google.com/deletion-policy: abandon
   labels:
     controlled-by: "phac-dns"
     project-name: "Unclass-dev-cobra"
